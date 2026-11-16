@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('mbl_theme')||'blue')}catch(e){document.documentElement.setAttribute('data-theme','blue')}</script>
+  <title>Cashier &amp; POS — Mixx Business Lite</title>
+  <link rel="stylesheet" href="../css/styles.css"/>
+</head>
+<body>
+
+<div id="nav-placeholder"></div>
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="page-hero-text">
+        <div class="breadcrumb">
+          <a href="../index.html" data-i18n="nav_features">Features</a>
+          <span>›</span>
+          <span data-i18n="pos_badge">Cashier &amp; POS</span>
+        </div>
+        <div class="label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          <span data-i18n="pos_badge">Cashier &amp; POS</span>
+        </div>
+        <h1 data-i18n="pos_h1">Easy Cashier POS For Every Business</h1>
+        <p data-i18n="pos_sub">Collect payments instantly, manage inventory, and keep your business running — even without internet.</p>
+        <div class="hero-actions">
+          <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_hero_cta1">Try It Free</a>
+          <a href="../pricing.html" class="btn btn-outline" data-i18n="feat_hero_cta2">See Pricing</a>
+        </div>
+      </div>
+      <div class="page-hero-visual">
+        <svg width="480" height="340" viewBox="0 0 480 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="480" height="340" rx="16" fill="#F0F5FF"/>
+          <!-- Tablet/POS device -->
+          <rect x="130" y="20" width="220" height="290" rx="16" fill="#1E293B"/>
+          <rect x="140" y="40" width="200" height="250" rx="8" fill="white"/>
+          <!-- POS header -->
+          <rect x="140" y="40" width="200" height="32" rx="8" fill="#00377D"/>
+          <rect x="140" y="64" width="200" height="8" fill="#00377D"/>
+          <text x="240" y="60" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="10" font-weight="700">🏪 Mixx POS</text>
+          <!-- Product list -->
+          <rect x="148" y="78" width="184" height="24" rx="4" fill="#F8FAFF"/>
+          <text x="158" y="94" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">Wax Dress</text>
+          <text x="316" y="94" text-anchor="end" fill="#00377D" font-family="Figtree,sans-serif" font-size="9" font-weight="700">12,500 F</text>
+          <rect x="148" y="108" width="184" height="24" rx="4" fill="#F8FAFF"/>
+          <text x="158" y="124" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">Leather Bag</text>
+          <text x="316" y="124" text-anchor="end" fill="#00377D" font-family="Figtree,sans-serif" font-size="9" font-weight="700">28,000 F</text>
+          <rect x="148" y="138" width="184" height="24" rx="4" fill="#FFD100" opacity="0.15"/>
+          <text x="158" y="154" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">Kente Scarf × 2</text>
+          <text x="316" y="154" text-anchor="end" fill="#00377D" font-family="Figtree,sans-serif" font-size="9" font-weight="700">16,000 F</text>
+          <!-- Total line -->
+          <line x1="148" y1="170" x2="332" y2="170" stroke="#E5ECF6" stroke-width="1.5"/>
+          <text x="158" y="186" fill="#666" font-family="Figtree,sans-serif" font-size="9">Total</text>
+          <text x="316" y="186" text-anchor="end" fill="#1E293B" font-family="Figtree,sans-serif" font-size="14" font-weight="900">56,500 F</text>
+          <!-- Payment buttons -->
+          <rect x="148" y="196" width="86" height="32" rx="6" fill="#00377D"/>
+          <text x="191" y="216" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="9" font-weight="600">💳 Card</text>
+          <rect x="242" y="196" width="90" height="32" rx="6" fill="#FFD100"/>
+          <text x="287" y="216" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="9" font-weight="600">📱 Mobile</text>
+          <!-- QR Payment -->
+          <rect x="148" y="236" width="184" height="46" rx="6" fill="#F8FAFF" stroke="#E5ECF6" stroke-width="1"/>
+          <rect x="158" y="244" width="30" height="30" rx="3" fill="#1E293B"/>
+          <rect x="162" y="248" width="8" height="8" fill="white"/>
+          <rect x="176" y="248" width="8" height="8" fill="white"/>
+          <rect x="162" y="260" width="8" height="8" fill="white"/>
+          <rect x="174" y="262" width="4" height="4" fill="white"/>
+          <text x="220" y="256" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">Scan to Pay</text>
+          <text x="220" y="270" fill="#888" font-family="Figtree,sans-serif" font-size="8">QR Code Payment</text>
+          <!-- Offline badge -->
+          <rect x="10" y="40" width="110" height="40" rx="8" fill="white" stroke="#E5ECF6" stroke-width="1.5"/>
+          <circle cx="30" cy="60" r="8" fill="#10B981" opacity="0.15"/>
+          <circle cx="30" cy="60" r="4" fill="#10B981"/>
+          <text x="50" y="56" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Works Offline</text>
+          <text x="50" y="70" fill="#666" font-family="Figtree,sans-serif" font-size="7">Always on ✓</text>
+          <!-- Sync badge -->
+          <rect x="360" y="40" width="110" height="40" rx="8" fill="white" stroke="#E5ECF6" stroke-width="1.5"/>
+          <text x="415" y="55" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">☁️ Cloud Sync</text>
+          <text x="415" y="70" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="8">Auto-backup ✓</text>
+          <!-- Merchant character -->
+          <text x="60" y="200" text-anchor="middle" font-size="40">🧑🏾‍💼</text>
+          <rect x="20" y="215" width="80" height="20" rx="4" fill="#00377D"/>
+          <text x="60" y="228" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Cashier</text>
+          <!-- Receipt -->
+          <rect x="360" y="100" width="110" height="150" rx="8" fill="white" stroke="#E5ECF6" stroke-width="1.5"/>
+          <text x="415" y="120" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="700">🧾 Receipt</text>
+          <line x1="370" y1="126" x2="460" y2="126" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="375" y="140" fill="#888" font-family="Figtree,sans-serif" font-size="7">Wax Dress</text>
+          <text x="455" y="140" text-anchor="end" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">12,500</text>
+          <text x="375" y="154" fill="#888" font-family="Figtree,sans-serif" font-size="7">Leather Bag</text>
+          <text x="455" y="154" text-anchor="end" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">28,000</text>
+          <text x="375" y="168" fill="#888" font-family="Figtree,sans-serif" font-size="7">Kente Scarf ×2</text>
+          <text x="455" y="168" text-anchor="end" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">16,000</text>
+          <line x1="370" y1="174" x2="460" y2="174" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="375" y="186" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8" font-weight="700">TOTAL</text>
+          <text x="455" y="186" text-anchor="end" fill="#00377D" font-family="Figtree,sans-serif" font-size="8" font-weight="700">56,500 F</text>
+          <rect x="375" y="194" width="80" height="18" rx="3" fill="#00377D"/>
+          <text x="415" y="206" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="7" font-weight="600">Send via WhatsApp</text>
+          <text x="415" y="228" text-anchor="middle" fill="#888" font-family="Figtree,sans-serif" font-size="8">📧 or Email</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Benefit Sections -->
+<section class="section">
+  <div class="container">
+
+    <!-- Section 1: Simple Interface -->
+    <div class="benefit-row" style="padding:64px 0;">
+      <div class="benefit-text">
+        <div class="label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          Mixx Business Lite
+        </div>
+        <h2 data-i18n="pos_s1_h">Simple, Intuitive Interface</h2>
+        <p data-i18n="pos_s1_p">No training required. Your staff can start using the POS system in minutes with a clean, touch-friendly interface.</p>
+        <ul class="benefit-checklist">
+          <li data-i18n="pos_s1_c1">Touch-optimized interface</li>
+          <li data-i18n="pos_s1_c2">Works on tablet or smartphone</li>
+          <li data-i18n="pos_s1_c3">Barcode scanner support</li>
+        </ul>
+        <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_section_cta">Get Started Free</a>
+      </div>
+      <div class="benefit-visual">
+        <svg width="420" height="300" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="420" height="300" rx="16" fill="#F0F5FF"/>
+          <!-- Tablet device -->
+          <rect x="100" y="20" width="220" height="260" rx="14" fill="#1E293B"/>
+          <rect x="112" y="36" width="196" height="228" rx="6" fill="white"/>
+          <!-- Product grid touch UI -->
+          <rect x="112" y="36" width="196" height="28" rx="6" fill="#00377D"/>
+          <rect x="112" y="58" width="196" height="6" fill="#00377D"/>
+          <text x="210" y="54" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="9" font-weight="600">🏪 Quick Sale</text>
+          <!-- Product grid -->
+          <rect x="120" y="70" width="58" height="58" rx="8" fill="#F8FAFF" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="149" y="100" text-anchor="middle" font-size="18">👗</text>
+          <text x="149" y="118" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">Dress</text>
+          <text x="149" y="128" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="8" font-weight="700">12.5K</text>
+          <rect x="184" y="70" width="58" height="58" rx="8" fill="#FFD100" opacity="0.15" stroke="#FFD100" stroke-width="1.5"/>
+          <text x="213" y="100" text-anchor="middle" font-size="18">👜</text>
+          <text x="213" y="118" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">Bag</text>
+          <text x="213" y="128" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="8" font-weight="700">28K</text>
+          <rect x="248" y="70" width="58" height="58" rx="8" fill="#F8FAFF" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="277" y="100" text-anchor="middle" font-size="18">🧣</text>
+          <text x="277" y="118" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">Scarf</text>
+          <text x="277" y="128" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="8" font-weight="700">8K</text>
+          <rect x="120" y="134" width="58" height="58" rx="8" fill="#F8FAFF" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="149" y="164" text-anchor="middle" font-size="18">🧢</text>
+          <text x="149" y="182" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">Hat</text>
+          <text x="149" y="192" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="8" font-weight="700">5K</text>
+          <rect x="184" y="134" width="58" height="58" rx="8" fill="#F8FAFF" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="213" y="164" text-anchor="middle" font-size="18">🛍️</text>
+          <text x="213" y="182" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">Bundle</text>
+          <text x="213" y="192" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="8" font-weight="700">45K</text>
+          <rect x="248" y="134" width="58" height="58" rx="8" fill="#10B981" opacity="0.1" stroke="#10B981" stroke-width="1"/>
+          <text x="277" y="164" text-anchor="middle" font-size="18">⌨️</text>
+          <text x="277" y="182" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="7">Custom</text>
+          <text x="277" y="192" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="8" font-weight="700">+ Add</text>
+          <!-- Checkout bar -->
+          <rect x="112" y="198" width="196" height="42" rx="6" fill="#00377D"/>
+          <text x="145" y="218" fill="white" font-family="Figtree,sans-serif" font-size="9">Cart: Dress + Scarf</text>
+          <text x="145" y="232" fill="#FFD100" font-family="Figtree,sans-serif" font-size="11" font-weight="700">20,500 XOF</text>
+          <rect x="260" y="206" width="44" height="26" rx="5" fill="#FFD100"/>
+          <text x="282" y="223" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="9" font-weight="700">Pay →</text>
+          <!-- Finger touch indicator -->
+          <circle cx="213" cy="159" r="14" fill="#00377D" opacity="0.12" stroke="#00377D" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <text x="213" y="163" text-anchor="middle" font-size="12">👆</text>
+          <!-- Device badges -->
+          <rect x="340" y="100" width="70" height="80" rx="8" fill="white" stroke="#E5ECF6" stroke-width="1.5"/>
+          <text x="375" y="128" text-anchor="middle" font-size="22">📱</text>
+          <text x="375" y="150" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Mobile</text>
+          <text x="375" y="164" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="7">Works ✓</text>
+          <rect x="10" y="100" width="70" height="80" rx="8" fill="white" stroke="#E5ECF6" stroke-width="1.5"/>
+          <text x="45" y="128" text-anchor="middle" font-size="22">💻</text>
+          <text x="45" y="150" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Tablet</text>
+          <text x="45" y="164" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="7">Works ✓</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Section 2: Works Offline -->
+    <div class="benefit-row reverse" style="padding:64px 0;">
+      <div class="benefit-text">
+        <div class="label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          Mixx Business Lite
+        </div>
+        <h2 data-i18n="pos_s2_h">Works Offline — Always On</h2>
+        <p data-i18n="pos_s2_p">Never lose a sale due to internet downtime. The Mixx Business Lite POS continues working offline and syncs automatically when reconnected.</p>
+        <ul class="benefit-checklist">
+          <li data-i18n="pos_s2_c1">Full offline mode</li>
+          <li data-i18n="pos_s2_c2">Auto-sync when back online</li>
+          <li data-i18n="pos_s2_c3">Cloud backup of all data</li>
+        </ul>
+        <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_section_cta">Get Started Free</a>
+      </div>
+      <div class="benefit-visual">
+        <svg width="420" height="300" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="420" height="300" rx="16" fill="#F0F5FF"/>
+          <!-- WiFi off scenario left -->
+          <rect x="20" y="30" width="170" height="240" rx="12" fill="white" stroke="#E5ECF6" stroke-width="2"/>
+          <text x="105" y="60" text-anchor="middle" fill="#EF4444" font-family="Figtree,sans-serif" font-size="10" font-weight="700">📵 No Internet</text>
+          <rect x="35" y="72" width="140" height="24" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+          <text x="105" y="88" text-anchor="middle" fill="#EF4444" font-family="Figtree,sans-serif" font-size="8">Connection lost</text>
+          <rect x="35" y="104" width="140" height="30" rx="6" fill="#F8FAFF"/>
+          <text x="105" y="118" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">Wax Dress</text>
+          <text x="105" y="128" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="9" font-weight="700">12,500 F</text>
+          <rect x="35" y="140" width="140" height="30" rx="6" fill="#F8FAFF"/>
+          <text x="105" y="154" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">Leather Bag</text>
+          <text x="105" y="164" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="9" font-weight="700">28,000 F</text>
+          <rect x="35" y="186" width="140" height="32" rx="6" fill="#10B981"/>
+          <text x="105" y="202" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="8" font-weight="600">⚡ Still Processing!</text>
+          <text x="105" y="215" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="7">Offline mode active</text>
+          <rect x="35" y="226" width="140" height="28" rx="4" fill="#F8FAFF" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="105" y="244" text-anchor="middle" fill="#666" font-family="Figtree,sans-serif" font-size="7">📦 3 sales queued for sync</text>
+          <!-- Arrow between -->
+          <text x="210" y="152" text-anchor="middle" font-size="28">🔄</text>
+          <text x="210" y="172" text-anchor="middle" fill="#888" font-family="Figtree,sans-serif" font-size="8">Auto-sync</text>
+          <!-- WiFi on scenario right -->
+          <rect x="230" y="30" width="170" height="240" rx="12" fill="white" stroke="#10B981" stroke-width="2"/>
+          <text x="315" y="60" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="10" font-weight="700">📶 Back Online!</text>
+          <rect x="245" y="72" width="140" height="24" rx="4" fill="#F0FDF4" stroke="#86EFAC" stroke-width="1"/>
+          <text x="315" y="88" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="8">Syncing 3 sales... ✓</text>
+          <rect x="245" y="104" width="140" height="24" rx="4" fill="#F0FDF4"/>
+          <circle cx="263" cy="116" r="7" fill="#10B981"/>
+          <text x="263" y="120" text-anchor="middle" fill="white" font-size="8">✓</text>
+          <text x="300" y="112" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Sale #47 synced</text>
+          <text x="300" y="123" fill="#888" font-family="Figtree,sans-serif" font-size="7">12,500 F — 10:23</text>
+          <rect x="245" y="134" width="140" height="24" rx="4" fill="#F0FDF4"/>
+          <circle cx="263" cy="146" r="7" fill="#10B981"/>
+          <text x="263" y="150" text-anchor="middle" fill="white" font-size="8">✓</text>
+          <text x="300" y="142" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Sale #48 synced</text>
+          <text x="300" y="153" fill="#888" font-family="Figtree,sans-serif" font-size="7">28,000 F — 10:31</text>
+          <rect x="245" y="164" width="140" height="24" rx="4" fill="#F0FDF4"/>
+          <circle cx="263" cy="176" r="7" fill="#10B981"/>
+          <text x="263" y="180" text-anchor="middle" fill="white" font-size="8">✓</text>
+          <text x="300" y="172" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Sale #49 synced</text>
+          <text x="300" y="183" fill="#888" font-family="Figtree,sans-serif" font-size="7">16,000 F — 10:45</text>
+          <!-- Cloud sync icon -->
+          <text x="315" y="228" text-anchor="middle" font-size="28">☁️</text>
+          <text x="315" y="252" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Cloud backup done ✓</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Section 3: Inventory -->
+    <div class="benefit-row" style="padding:64px 0;">
+      <div class="benefit-text">
+        <div class="label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          Mixx Business Lite
+        </div>
+        <h2 data-i18n="pos_s3_h">Inventory &amp; Stock Management</h2>
+        <p data-i18n="pos_s3_p">Track stock levels automatically with every sale. Get low-stock alerts and manage product labels and price tags with ease.</p>
+        <ul class="benefit-checklist">
+          <li data-i18n="pos_s3_c1">Automatic inventory updates</li>
+          <li data-i18n="pos_s3_c2">Low-stock alerts</li>
+          <li data-i18n="pos_s3_c3">Product labels &amp; price cards</li>
+        </ul>
+        <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_section_cta">Get Started Free</a>
+      </div>
+      <div class="benefit-visual">
+        <svg width="420" height="300" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="420" height="300" rx="16" fill="#F0F5FF"/>
+          <rect x="30" y="20" width="360" height="260" rx="12" fill="white" stroke="#E5ECF6" stroke-width="2"/>
+          <rect x="30" y="20" width="360" height="40" rx="12" fill="#00377D"/>
+          <rect x="30" y="48" width="360" height="12" fill="#00377D"/>
+          <text x="55" y="44" fill="white" font-family="Figtree,sans-serif" font-size="11" font-weight="700">📦 Inventory Dashboard</text>
+          <!-- Inventory items -->
+          <rect x="46" y="72" width="328" height="28" rx="4" fill="#F8FAFF"/>
+          <text x="60" y="90" fill="#888" font-family="Figtree,sans-serif" font-size="8">Product</text>
+          <text x="220" y="90" fill="#888" font-family="Figtree,sans-serif" font-size="8">Stock</text>
+          <text x="310" y="90" fill="#888" font-family="Figtree,sans-serif" font-size="8">Status</text>
+          <!-- Row 1 -->
+          <text x="60" y="116" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">👗 Wax Dress (L)</text>
+          <rect x="200" y="104" width="80" height="12" rx="3" fill="#F1F5F9"/>
+          <rect x="200" y="104" width="68" height="12" rx="3" fill="#10B981" opacity="0.5"/>
+          <text x="220" y="114" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8">34 units</text>
+          <rect x="312" y="106" width="50" height="14" rx="3" fill="#10B981" opacity="0.15"/>
+          <text x="337" y="117" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="7" font-weight="600">IN STOCK</text>
+          <line x1="46" y1="124" x2="374" y2="124" stroke="#F1F5F9" stroke-width="1"/>
+          <!-- Row 2 -->
+          <text x="60" y="142" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">👜 Leather Bag</text>
+          <rect x="200" y="130" width="80" height="12" rx="3" fill="#F1F5F9"/>
+          <rect x="200" y="130" width="20" height="12" rx="3" fill="#F59E0B" opacity="0.6"/>
+          <text x="220" y="140" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8">5 units</text>
+          <rect x="306" y="132" width="62" height="14" rx="3" fill="#F59E0B" opacity="0.15"/>
+          <text x="337" y="143" text-anchor="middle" fill="#F59E0B" font-family="Figtree,sans-serif" font-size="7" font-weight="600">⚠ LOW STOCK</text>
+          <line x1="46" y1="150" x2="374" y2="150" stroke="#F1F5F9" stroke-width="1"/>
+          <!-- Row 3 -->
+          <text x="60" y="168" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">🧣 Kente Scarf</text>
+          <rect x="200" y="156" width="80" height="12" rx="3" fill="#F1F5F9"/>
+          <rect x="200" y="156" width="60" height="12" rx="3" fill="#10B981" opacity="0.5"/>
+          <text x="220" y="166" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8">22 units</text>
+          <rect x="312" y="158" width="50" height="14" rx="3" fill="#10B981" opacity="0.15"/>
+          <text x="337" y="169" text-anchor="middle" fill="#10B981" font-family="Figtree,sans-serif" font-size="7" font-weight="600">IN STOCK</text>
+          <line x1="46" y1="176" x2="374" y2="176" stroke="#F1F5F9" stroke-width="1"/>
+          <!-- Row 4 -->
+          <text x="60" y="194" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">🧢 Wax Hat</text>
+          <rect x="200" y="182" width="80" height="12" rx="3" fill="#F1F5F9"/>
+          <rect x="200" y="182" width="2" height="12" rx="3" fill="#EF4444" opacity="0.7"/>
+          <text x="220" y="192" fill="#EF4444" font-family="Figtree,sans-serif" font-size="8">0 units</text>
+          <rect x="309" y="184" width="56" height="14" rx="3" fill="#EF4444" opacity="0.12"/>
+          <text x="337" y="195" text-anchor="middle" fill="#EF4444" font-family="Figtree,sans-serif" font-size="7" font-weight="600">OUT OF STOCK</text>
+          <!-- Alert -->
+          <rect x="46" y="212" width="328" height="44" rx="8" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1.5"/>
+          <text x="64" y="230" fill="#F59E0B" font-family="Figtree,sans-serif" font-size="9" font-weight="700">⚠ Low Stock Alert</text>
+          <text x="64" y="244" fill="#92400E" font-family="Figtree,sans-serif" font-size="8">Leather Bag: only 5 remaining. Reorder now to avoid stockouts.</text>
+          <rect x="310" y="220" width="58" height="24" rx="5" fill="#F59E0B"/>
+          <text x="339" y="236" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="8" font-weight="600">Reorder</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Section 4: Digital Receipts -->
+    <div class="benefit-row reverse" style="padding:64px 0;">
+      <div class="benefit-text">
+        <div class="label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+          Mixx Business Lite
+        </div>
+        <h2 data-i18n="pos_s4_h">Digital Receipts &amp; QR Payments</h2>
+        <p data-i18n="pos_s4_p">Issue digital receipts instantly. Customers can pay by scanning a QR code or via NFC-enabled devices.</p>
+        <ul class="benefit-checklist">
+          <li data-i18n="pos_s4_c1">Digital receipts via WhatsApp/SMS</li>
+          <li data-i18n="pos_s4_c2">QR code &amp; NFC payment</li>
+          <li data-i18n="pos_s4_c3">Comprehensive sales reports</li>
+        </ul>
+        <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_section_cta">Get Started Free</a>
+      </div>
+      <div class="benefit-visual">
+        <svg width="420" height="300" viewBox="0 0 420 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="420" height="300" rx="16" fill="#F0F5FF"/>
+          <!-- QR Code receipt -->
+          <rect x="140" y="20" width="140" height="200" rx="10" fill="white" stroke="#E5ECF6" stroke-width="2"/>
+          <rect x="148" y="28" width="124" height="30" rx="6" fill="#00377D"/>
+          <text x="210" y="44" text-anchor="middle" fill="white" font-family="Figtree,sans-serif" font-size="9" font-weight="700">AMARA SHOP</text>
+          <text x="210" y="66" text-anchor="middle" fill="#888" font-family="Figtree,sans-serif" font-size="8">Receipt #1047</text>
+          <line x1="148" y1="74" x2="272" y2="74" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="155" y="88" fill="#888" font-family="Figtree,sans-serif" font-size="8">Wax Dress</text>
+          <text x="265" y="88" text-anchor="end" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8">12,500</text>
+          <text x="155" y="102" fill="#888" font-family="Figtree,sans-serif" font-size="8">Leather Bag</text>
+          <text x="265" y="102" text-anchor="end" fill="#1E293B" font-family="Figtree,sans-serif" font-size="8">28,000</text>
+          <line x1="148" y1="110" x2="272" y2="110" stroke="#E5ECF6" stroke-width="1"/>
+          <text x="155" y="124" fill="#1E293B" font-family="Figtree,sans-serif" font-size="10" font-weight="700">TOTAL</text>
+          <text x="265" y="124" text-anchor="end" fill="#00377D" font-family="Figtree,sans-serif" font-size="10" font-weight="700">40,500 F</text>
+          <!-- QR Code box -->
+          <rect x="164" y="134" width="92" height="70" rx="4" fill="#1E293B"/>
+          <rect x="170" y="140" width="14" height="14" rx="2" fill="white"/>
+          <rect x="188" y="140" width="14" height="14" rx="2" fill="white"/>
+          <rect x="206" y="140" width="14" height="14" rx="2" fill="white"/>
+          <rect x="170" y="158" width="14" height="14" rx="2" fill="white"/>
+          <rect x="188" y="158" width="14" height="14" rx="2" fill="white"/>
+          <rect x="206" y="158" width="14" height="14" rx="2" fill="white"/>
+          <rect x="170" y="176" width="14" height="14" rx="2" fill="white"/>
+          <rect x="188" y="176" width="14" height="14" rx="2" fill="white"/>
+          <rect x="228" y="140" width="22" height="22" rx="2" fill="white"/>
+          <rect x="228" y="166" width="22" height="8" rx="1" fill="white"/>
+          <rect x="228" y="176" width="22" height="8" rx="1" fill="white"/>
+          <text x="210" y="218" text-anchor="middle" fill="#888" font-family="Figtree,sans-serif" font-size="7">Scan to pay or verify</text>
+          <!-- Send buttons left side -->
+          <rect x="20" y="100" width="110" height="36" rx="8" fill="#25D366" opacity="0.15" stroke="#25D366" stroke-width="1.5"/>
+          <text x="75" y="116" text-anchor="middle" fill="#25D366" font-family="Figtree,sans-serif" font-size="9" font-weight="600">💬 WhatsApp</text>
+          <text x="75" y="128" text-anchor="middle" fill="#666" font-family="Figtree,sans-serif" font-size="7">Send receipt</text>
+          <rect x="20" y="146" width="110" height="36" rx="8" fill="#3B82F6" opacity="0.1" stroke="#3B82F6" stroke-width="1.5"/>
+          <text x="75" y="162" text-anchor="middle" fill="#3B82F6" font-family="Figtree,sans-serif" font-size="9" font-weight="600">📱 SMS</text>
+          <text x="75" y="174" text-anchor="middle" fill="#666" font-family="Figtree,sans-serif" font-size="7">Send receipt</text>
+          <rect x="20" y="192" width="110" height="36" rx="8" fill="#EF4444" opacity="0.1" stroke="#EF4444" stroke-width="1.5"/>
+          <text x="75" y="208" text-anchor="middle" fill="#EF4444" font-family="Figtree,sans-serif" font-size="9" font-weight="600">📧 Email</text>
+          <text x="75" y="220" text-anchor="middle" fill="#666" font-family="Figtree,sans-serif" font-size="7">Send receipt</text>
+          <!-- NFC indicator -->
+          <rect x="290" y="100" width="110" height="80" rx="8" fill="white" stroke="#E5ECF6" stroke-width="1.5"/>
+          <text x="345" y="128" text-anchor="middle" font-size="26">📲</text>
+          <text x="345" y="152" text-anchor="middle" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">NFC / Tap</text>
+          <text x="345" y="166" text-anchor="middle" fill="#888" font-family="Figtree,sans-serif" font-size="7">Contactless pay</text>
+          <!-- Sales report card -->
+          <rect x="20" y="248" width="380" height="40" rx="8" fill="white" stroke="#E5ECF6" stroke-width="1.5"/>
+          <text x="40" y="264" fill="#1E293B" font-family="Figtree,sans-serif" font-size="9" font-weight="600">📊 Today's Summary</text>
+          <text x="40" y="278" fill="#888" font-family="Figtree,sans-serif" font-size="7">47 sales · 2.1M XOF · Avg: 44,680 F</text>
+          <rect x="320" y="256" width="70" height="24" rx="5" fill="#00377D" opacity="0.08"/>
+          <text x="355" y="272" text-anchor="middle" fill="#00377D" font-family="Figtree,sans-serif" font-size="8" font-weight="600">View Report</text>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="cta-banner">
+  <div class="container" style="text-align:center;">
+    <h2 data-i18n="cta_h2">Ready to Grow Your Business?</h2>
+    <p data-i18n="cta_sub">Join 300,000+ merchants already using Mixx Business Lite across Africa.</p>
+    <a href="../app/index.html#register" class="btn btn-primary" data-i18n="cta_btn">Register Now — It's Free</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('mbl_theme')||'blue')}catch(e){document.documentElement.setAttribute('data-theme','blue')}</script>
+  <title>Contact Us — Mixx Business Lite</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <style>
+    .contact-hero { background: linear-gradient(135deg, var(--blue) 0%, #0051a8 100%); color: #fff; padding: 80px 0 60px; text-align: center; }
+    .contact-hero .badge { background: rgba(255,209,0,.2); color: var(--yellow); border: 1px solid rgba(255,209,0,.3); display: inline-block; padding: 6px 18px; border-radius: 20px; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 20px; }
+    .contact-hero h1 { font-size: clamp(2rem,4vw,3rem); font-weight: 900; margin-bottom: 16px; }
+    .contact-hero p { font-size: 1.1rem; opacity: .85; max-width: 500px; margin: 0 auto; }
+
+    /* ── Contact Layout ── */
+    .contact-section { padding: 70px 0; }
+    .contact-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 60px; align-items: start; }
+    @media(max-width:900px){ .contact-grid{ grid-template-columns:1fr; gap:48px; } }
+
+    /* ── Form ── */
+    .contact-form-card { background: #fff; border: 2px solid #e8edf5; border-radius: 20px; padding: 44px 40px; }
+    @media(max-width:480px){ .contact-form-card{ padding:28px 22px; } }
+    .contact-form-card h2 { font-size: 1.5rem; font-weight: 800; color: var(--blue); margin-bottom: 30px; }
+
+    .form-group { margin-bottom: 22px; }
+    .form-group label { display: block; font-size: .88rem; font-weight: 600; color: var(--blue); margin-bottom: 7px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 13px 16px; border: 1.5px solid #d8e0ee; border-radius: 10px;
+      font-family: 'Figtree', sans-serif; font-size: .95rem; color: #222;
+      background: #f8faff; transition: border-color .2s, box-shadow .2s; outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,55,125,.09); background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 130px; }
+    .form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300377D' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    @media(max-width:520px){ .form-row{ grid-template-columns:1fr; } }
+
+    .btn-submit { width: 100%; padding: 15px; font-size: 1rem; font-weight: 700; background: var(--blue); color: #fff; border: none; border-radius: 10px; cursor: pointer; transition: background .2s, transform .15s; font-family: 'Figtree', sans-serif; }
+    .btn-submit:hover { background: var(--blue-dark); transform: translateY(-1px); }
+    .btn-submit:active { transform: translateY(0); }
+
+    #formSuccess { display: none; background: #f0fdf4; border: 2px solid #22c55e; border-radius: 12px; padding: 20px 24px; color: #166534; font-weight: 600; margin-top: 20px; text-align: center; }
+    #formSuccess.visible { display: block; }
+
+    /* ── Info sidebar ── */
+    .contact-info { display: flex; flex-direction: column; gap: 24px; }
+    .info-card { background: var(--bg-light); border-radius: 16px; padding: 28px 24px; }
+    .info-card .info-icon { width: 48px; height: 48px; background: var(--blue); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .info-card .info-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .info-card h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 8px; }
+    .info-card p { font-size: .9rem; color: #555; line-height: 1.6; margin: 0; }
+    .info-card a { color: var(--blue); font-weight: 600; text-decoration: none; }
+    .info-card a:hover { text-decoration: underline; }
+
+    .support-hours { background: var(--blue); color: #fff; border-radius: 16px; padding: 28px 24px; }
+    .support-hours h3 { font-size: 1rem; font-weight: 700; color: var(--yellow); margin-bottom: 14px; }
+    .support-hours .hour-row { display: flex; justify-content: space-between; font-size: .88rem; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,.1); opacity: .9; }
+    .support-hours .hour-row:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="contact-hero">
+    <div class="container">
+      <span class="badge" data-i18n="contact_badge">Get in Touch</span>
+      <h1 data-i18n="contact_h1">We're Here to Help</h1>
+      <p data-i18n="contact_sub">Have a question, need support, or want to explore a partnership? Reach out to our team.</p>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div class="contact-form-card">
+          <h2>Send us a Message</h2>
+          <form id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" data-i18n="contact_name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Amara Diallo" required />
+              </div>
+              <div class="form-group">
+                <label for="email" data-i18n="contact_email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="amara@example.com" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="subject" data-i18n="contact_subject">Subject</label>
+              <select id="subject" name="subject" required>
+                <option value="">— Select a subject —</option>
+                <option value="support">Customer Support</option>
+                <option value="sales">Sales &amp; Pricing</option>
+                <option value="partnership">Partnership</option>
+                <option value="enterprise">Enterprise Inquiry</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message" data-i18n="contact_message">Your Message</label>
+              <textarea id="message" name="message" placeholder="Tell us how we can help you..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit" data-i18n="contact_send">Send Message</button>
+          </form>
+          <div id="formSuccess">
+            <span>✓</span> <span data-i18n="contact_success">Message sent! We'll get back to you shortly.</span>
+          </div>
+        </div>
+
+        <!-- Info sidebar -->
+        <div class="contact-info">
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <h3>Email Us</h3>
+            <p><a href="mailto:support@mixxbusiness.com">support@mixxbusiness.com</a><br/>We reply within 24 hours on business days.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </div>
+            <h3>WhatsApp Support</h3>
+            <p><a href="https://wa.me/221770000000" target="_blank" rel="noopener">+221 77 000 0000</a><br/>Chat directly with our support team via WhatsApp.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <h3>Head Office</h3>
+            <p>Axian Group Tower<br/>Dakar, Sénégal</p>
+          </div>
+
+          <div class="support-hours">
+            <h3>Support Hours</h3>
+            <div class="hour-row"><span>Monday – Friday</span><span>8:00 – 20:00</span></div>
+            <div class="hour-row"><span>Saturday</span><span>9:00 – 18:00</span></div>
+            <div class="hour-row"><span>Sunday</span><span>10:00 – 16:00</span></div>
+            <div class="hour-row"><span>Emergency</span><span>24 / 7</span></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-i18n="cta_h2">Ready to Grow Your Business?</h2>
+      <p data-i18n="cta_sub">Join 300,000+ merchants already using Mixx Business Lite across Africa.</p>
+      <a href="app/index.html#register" class="btn btn-cta" data-i18n="cta_btn">Register Now — It's Free</a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

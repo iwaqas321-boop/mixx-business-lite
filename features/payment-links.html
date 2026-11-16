@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('mbl_theme')||'blue')}catch(e){document.documentElement.setAttribute('data-theme','blue')}</script>
+  <title>Payment Links — Mixx Business Lite</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><span data-i18n="nav_payment_links">Payment Links</span></div>
+    <div class="grid-2" style="gap:48px;align-items:center;min-height:280px;">
+      <div>
+        <div class="badge" data-i18n="pl_badge">Payment Links</div>
+        <h1 data-i18n="pl_h1">Collect Payments Faster with Payment Links</h1>
+        <p data-i18n="pl_sub">Create personalized payment pages and share them anywhere. Your customers pay instantly — no app, no friction.</p>
+        <div class="actions">
+          <a href="../app/index.html#register" class="btn btn-primary btn-lg" data-i18n="feat_hero_cta1">Try It Free</a>
+          <a href="../pricing.html" class="btn btn-outline-white" data-i18n="feat_hero_cta2">See Pricing</a>
+        </div>
+      </div>
+      <!-- Illustration: Woman sharing payment link in African market -->
+      <div style="display:flex;justify-content:flex-end;">
+        <svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px;">
+          <rect width="400" height="320" fill="rgba(255,255,255,0.07)" rx="16"/>
+          <!-- Background: vibrant market scene -->
+          <rect x="0" y="180" width="400" height="140" fill="rgba(0,0,0,0.2)" rx="0"/>
+          <!-- Market awning -->
+          <polygon points="0,80 400,80 400,120 0,120" fill="#E53E3E" opacity="0.8"/>
+          <polygon points="0,80 50,110 100,80 150,110 200,80 250,110 300,80 350,110 400,80" fill="#CC3030" opacity="0.6"/>
+          <!-- Decorative patterns on awning -->
+          <rect x="0" y="80" width="400" height="8" fill="#FFD100" opacity="0.6"/>
+          <rect x="0" y="112" width="400" height="8" fill="#FFD100" opacity="0.6"/>
+
+          <!-- Central figure: woman in traditional dress -->
+          <rect x="170" y="165" width="60" height="100" fill="#2D5F99" rx="6"/>
+          <!-- Wax print pattern -->
+          <circle cx="185" cy="180" r="5" fill="#FFD100" opacity="0.5"/>
+          <circle cx="200" cy="175" r="4" fill="#FFD100" opacity="0.5"/>
+          <circle cx="215" cy="183" r="5" fill="#FFD100" opacity="0.5"/>
+          <circle cx="190" cy="198" r="4" fill="#FFD100" opacity="0.4"/>
+          <circle cx="210" cy="202" r="5" fill="#FFD100" opacity="0.4"/>
+          <!-- Head wrap -->
+          <circle cx="200" cy="148" r="22" fill="#8B4513"/>
+          <ellipse cx="200" cy="130" rx="24" ry="14" fill="#E53E3E"/>
+          <ellipse cx="215" cy="124" rx="10" ry="6" fill="#CC2020" transform="rotate(-20,215,124)"/>
+          <!-- Face -->
+          <circle cx="194" cy="150" r="2" fill="#3B1A00"/>
+          <circle cx="206" cy="150" r="2" fill="#3B1A00"/>
+          <path d="M195 157 Q200 161 205 157" stroke="#3B1A00" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <!-- Arms -->
+          <rect x="135" y="168" width="38" height="14" fill="#6B3A1F" rx="7"/>
+          <rect x="227" y="168" width="38" height="14" fill="#6B3A1F" rx="7"/>
+
+          <!-- Phone with payment link page in left hand -->
+          <rect x="108" y="158" width="32" height="56" fill="white" rx="6" stroke="#E5E7EB" stroke-width="1.5" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.2))"/>
+          <rect x="110" y="161" width="28" height="44" fill="#F0F4FF" rx="4"/>
+          <!-- Payment link page on phone -->
+          <rect x="110" y="161" width="28" height="10" fill="#00377D" rx="2"/>
+          <text x="124" y="168" font-family="Figtree,sans-serif" font-size="4" fill="white" text-anchor="middle" font-weight="700">Pay me</text>
+          <rect x="114" y="174" width="20" height="14" fill="#EEF3FB" rx="3"/>
+          <text x="124" y="183" font-family="Figtree,sans-serif" font-size="10" fill="#00377D" text-anchor="middle" font-weight="900">$</text>
+          <text x="124" y="192" font-family="Figtree,sans-serif" font-size="4.5" fill="#374151" text-anchor="middle">50.00</text>
+          <rect x="112" y="197" width="24" height="7" fill="#FFD100" rx="2"/>
+          <text x="124" y="202" font-family="Figtree,sans-serif" font-size="4" fill="#00377D" text-anchor="middle" font-weight="700">PAY</text>
+
+          <!-- Right: customer receiving and scanning -->
+          <rect x="270" y="145" width="26" height="46" fill="white" rx="5" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="272" y="147" width="22" height="36" fill="#1A1A2E" rx="3"/>
+          <!-- QR scan animation -->
+          <rect x="274" y="149" width="18" height="18" fill="#F0F4FF" rx="2"/>
+          <rect x="275" y="150" width="4" height="4" fill="#00377D" rx="0.5"/>
+          <rect x="281" y="150" width="4" height="4" fill="#00377D" rx="0.5"/>
+          <rect x="287" y="150" width="4" height="4" fill="#00377D" rx="0.5"/>
+          <rect x="275" y="156" width="4" height="4" fill="#00377D" rx="0.5"/>
+          <rect x="281" y="154" width="2" height="6" fill="#6B7280" rx="0.5"/>
+          <rect x="275" y="162" width="4" height="4" fill="#00377D" rx="0.5"/>
+          <rect x="281" y="162" width="4" height="4" fill="#00377D" rx="0.5"/>
+          <rect x="287" y="158" width="4" height="8" fill="#00377D" rx="0.5"/>
+          <!-- Scan line animation indicator -->
+          <rect x="272" y="160" width="22" height="1.5" fill="#FFD100" opacity="0.8"/>
+          <!-- Payment received on scan phone -->
+          <rect x="272" y="171" width="22" height="10" fill="#22C55E" rx="2"/>
+          <text x="283" y="178" font-family="Figtree,sans-serif" font-size="4.5" fill="white" text-anchor="middle" font-weight="700">✓ PAID</text>
+
+          <!-- Customer figure (right, smaller) -->
+          <circle cx="295" cy="200" r="14" fill="#7C3D12"/>
+          <rect x="285" y="210" width="20" height="45" fill="#16A34A" rx="4"/>
+
+          <!-- Floating payment success notification -->
+          <rect x="10" y="140" width="130" height="52" fill="white" rx="10" filter="drop-shadow(0 4px 16px rgba(0,0,0,0.15))"/>
+          <circle cx="30" cy="160" r="12" fill="#22C55E"/>
+          <text x="30" y="164" font-family="Figtree,sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
+          <text x="50" y="155" font-family="Figtree,sans-serif" font-size="7.5" fill="#111827" font-weight="700">Payment received!</text>
+          <text x="50" y="166" font-family="Figtree,sans-serif" font-size="9" fill="#16A34A" font-weight="900">+$50.00</text>
+          <text x="50" y="177" font-family="Figtree,sans-serif" font-size="5.5" fill="#9CA3AF">via WhatsApp link</text>
+
+          <!-- Share channel icons -->
+          <circle cx="340" cy="200" r="18" fill="#25D366"/>
+          <text x="340" y="205" font-family="Figtree,sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="800">W</text>
+          <circle cx="366" cy="175" r="14" fill="#EA4335"/>
+          <text x="366" y="180" font-family="Figtree,sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">@</text>
+          <circle cx="370" cy="220" r="14" fill="#0A66C2"/>
+          <text x="370" y="225" font-family="Figtree,sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">in</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="benefit-row">
+      <div class="benefit-text">
+        <div class="label">01</div>
+        <h2 data-i18n="pl_s1_h">Create Your Own Payment Pages</h2>
+        <p data-i18n="pl_s1_p">Build personalized payment pages for any product or service in seconds. Set the amount, add a description, and you're ready.</p>
+        <ul class="benefit-checklist">
+          <li data-i18n="pl_s1_c1">Custom amount & description</li>
+          <li data-i18n="pl_s1_c2">Add product images</li>
+          <li data-i18n="pl_s1_c3">Set expiry dates on links</li>
+        </ul>
+        <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_section_cta">Get Started Free</a>
+      </div>
+      <div class="benefit-visual">
+        <!-- Create payment link UI -->
+        <svg viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;padding:20px;">
+          <rect width="380" height="280" fill="#F5F8FF" rx="16"/>
+          <rect x="30" y="20" width="320" height="240" fill="white" rx="12" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="30" y="20" width="320" height="36" fill="#00377D" rx="12"/>
+          <text x="190" y="43" font-family="Figtree,sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="700">Create Payment Link</text>
+          <!-- Form fields -->
+          <text x="50" y="76" font-family="Figtree,sans-serif" font-size="7" fill="#374151" font-weight="600">Product / Service Name</text>
+          <rect x="50" y="81" width="280" height="26" fill="#F9FAFB" rx="6" stroke="#E5E7EB" stroke-width="1"/>
+          <text x="62" y="98" font-family="Figtree,sans-serif" font-size="7.5" fill="#374151">Handmade Ankara Bag</text>
+          <text x="50" y="122" font-family="Figtree,sans-serif" font-size="7" fill="#374151" font-weight="600">Amount</text>
+          <rect x="50" y="127" width="130" height="26" fill="#F9FAFB" rx="6" stroke="#00377D" stroke-width="1.5"/>
+          <text x="62" y="144" font-family="Figtree,sans-serif" font-size="12" fill="#00377D" font-weight="700">$45.00</text>
+          <text x="196" y="122" font-family="Figtree,sans-serif" font-size="7" fill="#374151" font-weight="600">Currency</text>
+          <rect x="196" y="127" width="134" height="26" fill="#F9FAFB" rx="6" stroke="#E5E7EB" stroke-width="1"/>
+          <text x="208" y="144" font-family="Figtree,sans-serif" font-size="7.5" fill="#374151">USD $</text>
+          <!-- Image upload -->
+          <text x="50" y="170" font-family="Figtree,sans-serif" font-size="7" fill="#374151" font-weight="600">Product Image</text>
+          <rect x="50" y="175" width="80" height="55" fill="#EEF3FB" rx="6" stroke="#C7D9F0" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="90" y="198" font-family="Figtree,sans-serif" font-size="16" fill="#00377D" text-anchor="middle">+</text>
+          <text x="90" y="212" font-family="Figtree,sans-serif" font-size="6" fill="#9CA3AF" text-anchor="middle">Add photo</text>
+          <!-- Link preview -->
+          <rect x="145" y="175" width="185" height="55" fill="#F0F4FF" rx="6" stroke="#C7D9F0" stroke-width="1"/>
+          <text x="155" y="190" font-family="Figtree,sans-serif" font-size="6" fill="#6B7280" font-weight="600">Your link:</text>
+          <text x="155" y="202" font-family="Figtree,sans-serif" font-size="6.5" fill="#00377D">pay.mixxbusiness.com/</text>
+          <text x="155" y="212" font-family="Figtree,sans-serif" font-size="7" fill="#00377D" font-weight="700">ankara-bag-45</text>
+          <rect x="270" y="218" width="52" height="9" fill="#00377D" rx="3"/>
+          <text x="296" y="224" font-family="Figtree,sans-serif" font-size="5.5" fill="white" text-anchor="middle">Copy link</text>
+          <!-- Create button -->
+          <rect x="50" y="242" width="280" height="12" fill="#FFD100" rx="4"/>
+          <text x="190" y="251" font-family="Figtree,sans-serif" font-size="7" fill="#00377D" text-anchor="middle" font-weight="700">Create Payment Link →</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="benefit-row reverse">
+      <div class="benefit-text">
+        <div class="label">02</div>
+        <h2 data-i18n="pl_s2_h">Share Everywhere</h2>
+        <p data-i18n="pl_s2_p">Send your payment link via WhatsApp, email, SMS, social media, or embed it on your website. Works anywhere with an internet connection.</p>
+        <ul class="benefit-checklist">
+          <li data-i18n="pl_s2_c1">WhatsApp, email, SMS sharing</li>
+          <li data-i18n="pl_s2_c2">Social media-ready links</li>
+          <li data-i18n="pl_s2_c3">Embed on any website</li>
+        </ul>
+        <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_section_cta">Get Started Free</a>
+      </div>
+      <div class="benefit-visual">
+        <!-- Africa map with connection nodes -->
+        <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;padding:20px;">
+          <rect width="380" height="300" fill="#E8F0FB" rx="16"/>
+          <!-- Africa silhouette (simplified) -->
+          <path d="M190,40 Q220,38 240,55 Q265,70 270,100 Q275,130 265,155 Q255,180 260,200 Q265,220 250,240 Q235,258 220,265 Q205,270 190,265 Q175,260 160,250 Q145,238 140,220 Q135,200 130,185 Q120,160 115,140 Q110,115 120,90 Q130,65 155,48 Q170,40 190,40Z" fill="#00377D" opacity="0.15"/>
+          <!-- Key city dots -->
+          <circle cx="178" cy="148" r="6" fill="#00377D"/><!-- Dakar -->
+          <text x="178" y="136" font-family="Figtree,sans-serif" font-size="6" fill="#00377D" text-anchor="middle" font-weight="700">Dakar</text>
+          <circle cx="195" cy="175" r="6" fill="#00377D"/><!-- Lomé -->
+          <text x="195" y="163" font-family="Figtree,sans-serif" font-size="6" fill="#00377D" text-anchor="middle" font-weight="700">Lomé</text>
+          <circle cx="225" cy="215" r="6" fill="#00377D"/><!-- Dar es Salaam -->
+          <text x="225" y="203" font-family="Figtree,sans-serif" font-size="6" fill="#00377D" text-anchor="middle" font-weight="700">Dar es Salaam</text>
+          <!-- Connection lines -->
+          <line x1="178" y1="148" x2="195" y2="175" stroke="#00377D" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.4"/>
+          <line x1="195" y1="175" x2="225" y2="215" stroke="#00377D" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.4"/>
+          <!-- Payment link icon at center -->
+          <circle cx="190" cy="185" r="22" fill="#FFD100"/>
+          <text x="190" y="191" font-family="Figtree,sans-serif" font-size="13" fill="#00377D" text-anchor="middle" font-weight="900">🔗</text>
+
+          <!-- WhatsApp chat bubble -->
+          <rect x="20" y="60" width="120" height="70" fill="white" rx="10" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.1))"/>
+          <rect x="20" y="60" width="120" height="22" fill="#25D366" rx="10"/>
+          <text x="80" y="75" font-family="Figtree,sans-serif" font-size="7" fill="white" text-anchor="middle" font-weight="700">WhatsApp</text>
+          <rect x="30" y="88" width="80" height="16" fill="#DCF8C6" rx="8"/>
+          <text x="35" y="99" font-family="Figtree,sans-serif" font-size="5.5" fill="#374151">pay.mixx.com/bag ✓✓</text>
+          <rect x="30" y="110" width="60" height="14" fill="#F0F0F0" rx="8"/>
+          <text x="35" y="120" font-family="Figtree,sans-serif" font-size="5.5" fill="#374151">Thanks! 🙏</text>
+
+          <!-- SMS -->
+          <rect x="240" y="50" width="120" height="60" fill="white" rx="10" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.1))"/>
+          <rect x="240" y="50" width="120" height="22" fill="#2D5F99" rx="10"/>
+          <text x="300" y="65" font-family="Figtree,sans-serif" font-size="7" fill="white" text-anchor="middle" font-weight="700">SMS</text>
+          <rect x="250" y="78" width="100" height="24" fill="#F0F4FF" rx="6"/>
+          <text x="256" y="88" font-family="Figtree,sans-serif" font-size="5.5" fill="#374151">Invoice #1042 ready.</text>
+          <text x="256" y="96" font-family="Figtree,sans-serif" font-size="5.5" fill="#00377D">Tap to pay: pay.mixx.com</text>
+
+          <!-- Instagram post preview -->
+          <rect x="240" y="195" width="120" height="80" fill="white" rx="10" filter="drop-shadow(0 2px 8px rgba(0,0,0,0.1))"/>
+          <defs><linearGradient id="igGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F58529"/><stop offset="50%" stop-color="#DD2A7B"/><stop offset="100%" stop-color="#8134AF"/></linearGradient></defs>
+          <rect x="240" y="195" width="120" height="22" fill="url(#igGrad)" rx="10"/>
+          <text x="300" y="210" font-family="Figtree,sans-serif" font-size="7" fill="white" text-anchor="middle" font-weight="700">Instagram</text>
+          <rect x="250" y="223" width="40" height="40" fill="#EEF3FB" rx="4"/>
+          <text x="270" y="248" font-family="Figtree,sans-serif" font-size="8" fill="#00377D" text-anchor="middle">👜</text>
+          <text x="300" y="232" font-family="Figtree,sans-serif" font-size="5.5" fill="#374151">Ankara Bag $45</text>
+          <text x="300" y="242" font-family="Figtree,sans-serif" font-size="5" fill="#9CA3AF">Link in bio ↗</text>
+          <rect x="295" y="247" width="60" height="10" fill="#FFD100" rx="3"/>
+          <text x="325" y="254" font-family="Figtree,sans-serif" font-size="5.5" fill="#00377D" text-anchor="middle" font-weight="700">Shop Now</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="benefit-row">
+      <div class="benefit-text">
+        <div class="label">03</div>
+        <h2 data-i18n="pl_s3_h">Accept Unlimited Payments</h2>
+        <p data-i18n="pl_s3_p">Receive unlimited payments through electronic transfer or cash on delivery. Supports all major cards and mobile money.</p>
+        <ul class="benefit-checklist">
+          <li data-i18n="pl_s3_c1">Visa, Mastercard, Mobile Money</li>
+          <li data-i18n="pl_s3_c2">Cash on delivery option</li>
+          <li data-i18n="pl_s3_c3">Multi-currency support</li>
+        </ul>
+        <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_section_cta">Get Started Free</a>
+      </div>
+      <div class="benefit-visual">
+        <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;padding:20px;">
+          <rect width="380" height="260" fill="#FFF8E7" rx="16"/>
+          <!-- Payment methods grid -->
+          <text x="190" y="40" font-family="Figtree,sans-serif" font-size="9" fill="#374151" text-anchor="middle" font-weight="700">Accepted Payment Methods</text>
+          <!-- Visa -->
+          <rect x="25" y="55" width="80" height="50" fill="white" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="30" y="65" width="70" height="20" fill="#1A1F71" rx="4"/>
+          <text x="65" y="79" font-family="Figtree,sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="900" font-style="italic">VISA</text>
+          <text x="65" y="96" font-family="Figtree,sans-serif" font-size="6" fill="#374151" text-anchor="middle">International</text>
+          <!-- Mastercard -->
+          <rect x="120" y="55" width="80" height="50" fill="white" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+          <circle cx="152" cy="78" r="14" fill="#EB001B" opacity="0.9"/>
+          <circle cx="168" cy="78" r="14" fill="#F79E1B" opacity="0.9"/>
+          <text x="160" y="96" font-family="Figtree,sans-serif" font-size="6" fill="#374151" text-anchor="middle">Mastercard</text>
+          <!-- MTN -->
+          <rect x="215" y="55" width="80" height="50" fill="white" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="220" y="62" width="70" height="25" fill="#FFD100" rx="4"/>
+          <text x="255" y="79" font-family="Figtree,sans-serif" font-size="9" fill="#1A1A2E" text-anchor="middle" font-weight="900">MTN</text>
+          <text x="255" y="96" font-family="Figtree,sans-serif" font-size="6" fill="#374151" text-anchor="middle">Mobile Money</text>
+          <!-- Orange Money -->
+          <rect x="310" y="55" width="60" height="50" fill="white" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+          <circle cx="340" cy="75" r="14" fill="#FF6600"/>
+          <text x="340" y="79" font-family="Figtree,sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="900">O</text>
+          <text x="340" y="96" font-family="Figtree,sans-serif" font-size="5.5" fill="#374151" text-anchor="middle">Orange</text>
+          <!-- Airtel -->
+          <rect x="25" y="120" width="80" height="50" fill="white" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="30" y="128" width="70" height="22" fill="#E53E3E" rx="4"/>
+          <text x="65" y="143" font-family="Figtree,sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="900">Airtel</text>
+          <text x="65" y="162" font-family="Figtree,sans-serif" font-size="6" fill="#374151" text-anchor="middle">Mobile Money</text>
+          <!-- Stripe -->
+          <rect x="120" y="120" width="80" height="50" fill="white" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="130" y="133" width="60" height="14" fill="#635BFF" rx="3"/>
+          <text x="160" y="143" font-family="Figtree,sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="700">stripe</text>
+          <text x="160" y="162" font-family="Figtree,sans-serif" font-size="6" fill="#374151" text-anchor="middle">International</text>
+          <!-- Cash on delivery -->
+          <rect x="215" y="120" width="80" height="50" fill="white" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+          <text x="255" y="148" font-family="Figtree,sans-serif" font-size="18" fill="#16A34A" text-anchor="middle">💵</text>
+          <text x="255" y="162" font-family="Figtree,sans-serif" font-size="6" fill="#374151" text-anchor="middle">Cash on delivery</text>
+          <!-- TAP -->
+          <rect x="310" y="120" width="60" height="50" fill="white" rx="8" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="315" y="131" width="50" height="14" fill="#1A1A2E" rx="3"/>
+          <text x="340" y="141" font-family="Figtree,sans-serif" font-size="7.5" fill="white" text-anchor="middle" font-weight="700">TAP</text>
+          <text x="340" y="162" font-family="Figtree,sans-serif" font-size="5.5" fill="#374151" text-anchor="middle">Gateway</text>
+          <!-- Stats -->
+          <rect x="25" y="185" width="330" height="55" fill="#00377D" rx="10"/>
+          <text x="100" y="218" font-family="Figtree,sans-serif" font-size="13" fill="#FFD100" text-anchor="middle" font-weight="900">∞</text>
+          <text x="100" y="232" font-family="Figtree,sans-serif" font-size="6" fill="rgba(255,255,255,0.7)" text-anchor="middle">Unlimited payments</text>
+          <rect x="183" y="195" width="1" height="36" fill="rgba(255,255,255,0.2)"/>
+          <text x="255" y="210" font-family="Figtree,sans-serif" font-size="8" fill="white" text-anchor="middle" font-weight="900">8+</text>
+          <text x="255" y="222" font-family="Figtree,sans-serif" font-size="6" fill="rgba(255,255,255,0.7)" text-anchor="middle">payment methods</text>
+          <text x="255" y="232" font-family="Figtree,sans-serif" font-size="5.5" fill="rgba(255,255,255,0.5)" text-anchor="middle">& growing</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="benefit-row reverse">
+      <div class="benefit-text">
+        <div class="label">04</div>
+        <h2 data-i18n="pl_s4_h">Fast Pay Link (Pay Me)</h2>
+        <p data-i18n="pl_s4_p">The fastest way to get paid. Generate a permanent personal payment link and use it everywhere as your payment address.</p>
+        <ul class="benefit-checklist">
+          <li data-i18n="pl_s4_c1">Permanent personal payment URL</li>
+          <li data-i18n="pl_s4_c2">Share as your payment address</li>
+          <li data-i18n="pl_s4_c3">Instant payment confirmation</li>
+        </ul>
+        <a href="../app/index.html#register" class="btn btn-primary" data-i18n="feat_section_cta">Get Started Free</a>
+      </div>
+      <div class="benefit-visual">
+        <svg viewBox="0 0 380 260" xmlns="http://www.w3.org/2000/svg" style="width:100%;padding:20px;">
+          <rect width="380" height="260" fill="#E8F0FB" rx="16"/>
+          <!-- Business card style for "pay me" link -->
+          <rect x="30" y="50" width="220" height="140" fill="linear-gradient(135deg,#00377D,#0056C1)" rx="16" filter="drop-shadow(0 8px 24px rgba(0,55,125,0.3))"/>
+          <!-- Using solid fill + overlay to simulate gradient -->
+          <rect x="30" y="50" width="220" height="140" fill="#00377D" rx="16"/>
+          <rect x="30" y="50" width="100" height="140" fill="#0056C1" rx="16" opacity="0.5"/>
+          <!-- Corner circle decoration -->
+          <circle cx="210" cy="70" r="40" fill="rgba(255,255,255,0.05)"/>
+          <circle cx="50" cy="170" r="35" fill="rgba(255,255,255,0.05)"/>
+          <!-- Logo on card -->
+          <text x="50" y="85" font-family="Figtree,sans-serif" font-size="18" fill="white" font-weight="900">Mixx</text>
+          <text x="50" y="97" font-family="Figtree,sans-serif" font-size="6" fill="rgba(255,255,255,0.5)" letter-spacing="1">BUSINESS LITE</text>
+          <!-- Name -->
+          <text x="50" y="125" font-family="Figtree,sans-serif" font-size="11" fill="white" font-weight="700">Amara Diallo</text>
+          <text x="50" y="139" font-family="Figtree,sans-serif" font-size="7" fill="rgba(255,255,255,0.6)">Afrique Créations · Dakar</text>
+          <!-- Pay me link -->
+          <rect x="40" y="148" width="200" height="28" fill="rgba(255,255,255,0.1)" rx="6"/>
+          <text x="50" y="161" font-family="Figtree,sans-serif" font-size="6" fill="rgba(255,255,255,0.5)">Pay me at:</text>
+          <text x="50" y="171" font-family="Figtree,sans-serif" font-size="7.5" fill="#FFD100" font-weight="700">pay.mixx.com/amara</text>
+          <!-- QR code on card right side -->
+          <rect x="200" y="110" width="40" height="40" fill="white" rx="4" opacity="0.9"/>
+          <rect x="204" y="114" width="8" height="8" fill="#00377D" rx="1"/>
+          <rect x="214" y="114" width="4" height="4" fill="#00377D"/>
+          <rect x="220" y="114" width="8" height="8" fill="#00377D" rx="1"/>
+          <rect x="204" y="124" width="4" height="4" fill="#00377D"/>
+          <rect x="210" y="122" width="4" height="8" fill="#9CA3AF"/>
+          <rect x="204" y="130" width="8" height="8" fill="#00377D" rx="1"/>
+          <rect x="214" y="128" width="4" height="4" fill="#00377D"/>
+          <rect x="220" y="126" width="8" height="12" fill="#00377D" rx="1"/>
+
+          <!-- Right side: incoming payments log -->
+          <rect x="270" y="30" width="90" height="200" fill="white" rx="10" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="270" y="30" width="90" height="24" fill="#00377D" rx="10"/>
+          <text x="315" y="45" font-family="Figtree,sans-serif" font-size="6.5" fill="white" text-anchor="middle" font-weight="700">Payments</text>
+
+          <!-- Payment items -->
+          <rect x="278" y="62" width="74" height="28" fill="#DCFCE7" rx="6"/>
+          <text x="285" y="74" font-family="Figtree,sans-serif" font-size="6" fill="#16A34A" font-weight="700">+$45.00</text>
+          <text x="285" y="83" font-family="Figtree,sans-serif" font-size="5" fill="#6B7280">Kofi B. · 2 min ago</text>
+
+          <rect x="278" y="96" width="74" height="28" fill="#DCFCE7" rx="6"/>
+          <text x="285" y="108" font-family="Figtree,sans-serif" font-size="6" fill="#16A34A" font-weight="700">+$120.00</text>
+          <text x="285" y="117" font-family="Figtree,sans-serif" font-size="5" fill="#6B7280">Fatima A. · 1h ago</text>
+
+          <rect x="278" y="130" width="74" height="28" fill="#DCFCE7" rx="6"/>
+          <text x="285" y="142" font-family="Figtree,sans-serif" font-size="6" fill="#16A34A" font-weight="700">+$75.00</text>
+          <text x="285" y="151" font-family="Figtree,sans-serif" font-size="5" fill="#6B7280">Moussa K. · 3h ago</text>
+
+          <rect x="278" y="167" width="74" height="20" fill="#F0F4FF" rx="6"/>
+          <text x="315" y="179" font-family="Figtree,sans-serif" font-size="6.5" fill="#00377D" text-anchor="middle" font-weight="700">Today: $240</text>
+
+          <!-- Arrow pointing right -->
+          <path d="M255 130 L268 130" stroke="#00377D" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="267,126 275,130 267,134" fill="#00377D"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2 data-i18n="cta_h2">Ready to Grow Your Business?</h2>
+    <p data-i18n="cta_sub">Join 300,000+ merchants already using Mixx Business Lite across Africa.</p>
+    <a href="../app/index.html#register" class="btn btn-secondary btn-lg" data-i18n="cta_btn">Register Now — It's Free</a>
+  </div>
+</section>
+
+<div id="footer-placeholder"></div>
+<script src="../js/i18n.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

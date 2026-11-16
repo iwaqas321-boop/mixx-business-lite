@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('mbl_theme')||'blue')}catch(e){document.documentElement.setAttribute('data-theme','blue')}</script>
+  <title>About Us — Mixx Business Lite</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <style>
+    .about-hero { background: linear-gradient(135deg, var(--blue) 0%, #0051a8 100%); color: #fff; padding: 90px 0 70px; }
+    .about-hero .badge { background: rgba(255,209,0,.2); color: var(--yellow); border: 1px solid rgba(255,209,0,.3); display: inline-block; padding: 6px 18px; border-radius: 20px; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 20px; }
+    .about-hero h1 { font-size: clamp(2.2rem,5vw,3.5rem); font-weight: 900; margin-bottom: 20px; line-height: 1.15; }
+    .about-hero p { font-size: 1.1rem; opacity: .88; max-width: 580px; }
+    .about-hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    @media(max-width:768px){ .about-hero-grid{ grid-template-columns:1fr; gap:40px; } }
+
+    /* ── Mission & Story ── */
+    .about-section { padding: 70px 0; }
+    .about-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    @media(max-width:768px){ .about-two-col{ grid-template-columns:1fr; gap:40px; } }
+    .about-block h2 { font-size: 1.7rem; font-weight: 800; color: var(--blue); margin-bottom: 18px; }
+    .about-block p { color: #555; line-height: 1.75; font-size: 1.02rem; }
+    .about-block .accent-line { width: 50px; height: 4px; background: var(--yellow); border-radius: 4px; margin-bottom: 20px; }
+
+    /* ── Stats ── */
+    .about-stats { background: var(--blue); color: #fff; padding: 60px 0; }
+    .about-stats-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; text-align: center; }
+    @media(max-width:768px){ .about-stats-grid{ grid-template-columns:repeat(2,1fr); } }
+    .about-stats-item .num { font-size: 2.8rem; font-weight: 900; color: var(--yellow); line-height: 1; margin-bottom: 8px; }
+    .about-stats-item .lbl { font-size: .88rem; opacity: .85; letter-spacing: .04em; }
+
+    /* ── Awards ── */
+    .awards-section { padding: 70px 0; background: var(--bg-light); }
+    .awards-section h2 { font-size: 1.7rem; font-weight: 800; color: var(--blue); text-align: center; margin-bottom: 40px; }
+    .awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    @media(max-width:768px){ .awards-grid{ grid-template-columns:1fr; } }
+    .award-card { background: #fff; border-radius: 16px; padding: 32px 28px; text-align: center; border: 2px solid #e8edf5; }
+    .award-icon { width: 60px; height: 60px; margin: 0 auto 16px; }
+    .award-card h3 { font-size: 1rem; font-weight: 700; color: var(--blue); }
+
+    /* ── Team / Values ── */
+    .values-section { padding: 70px 0; }
+    .values-section h2 { font-size: 1.7rem; font-weight: 800; color: var(--blue); text-align: center; margin-bottom: 12px; }
+    .values-section .sub { text-align: center; color: #666; margin-bottom: 50px; max-width: 520px; margin-inline: auto; }
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+    @media(max-width:768px){ .values-grid{ grid-template-columns:1fr; } }
+    .value-card { background: var(--bg-light); border-radius: 16px; padding: 32px 28px; }
+    .value-card .icon { font-size: 2.4rem; margin-bottom: 16px; }
+    .value-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--blue); margin-bottom: 10px; }
+    .value-card p { font-size: .92rem; color: #555; line-height: 1.65; }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-grid">
+        <div>
+          <span class="badge" data-i18n="about_badge">About Us</span>
+          <h1 data-i18n="about_h1">Built for African Businesses</h1>
+          <p data-i18n="about_sub">Mixx Business Lite is the all-in-one payments and commerce platform helping businesses grow across Senegal, Togo, Tanzania, and beyond.</p>
+        </div>
+        <!-- Africa map SVG illustration -->
+        <div style="display:flex;justify-content:center;">
+          <svg width="340" height="280" viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background circle -->
+            <circle cx="170" cy="140" r="120" fill="rgba(255,255,255,0.06)" />
+            <circle cx="170" cy="140" r="90" fill="rgba(255,255,255,0.04)" />
+
+            <!-- Simplified Africa continent shape -->
+            <path d="M140 40 L180 38 L210 55 L225 80 L230 110 L220 135 L225 160 L215 190 L200 215 L185 230 L170 235 L155 225 L140 205 L130 180 L120 155 L115 130 L125 100 L120 75 L135 55 Z" fill="rgba(255,209,0,0.15)" stroke="rgba(255,209,0,0.5)" stroke-width="1.5"/>
+
+            <!-- Country dots: Senegal (Dakar) -->
+            <circle cx="128" cy="110" r="8" fill="var(--yellow)" />
+            <circle cx="128" cy="110" r="14" fill="rgba(255,209,0,0.25)" />
+            <text x="118" y="96" fill="#fff" font-size="10" font-family="Figtree" font-weight="700">Dakar</text>
+
+            <!-- Togo (Lomé) -->
+            <circle cx="165" cy="140" r="8" fill="var(--yellow)" />
+            <circle cx="165" cy="140" r="14" fill="rgba(255,209,0,0.25)" />
+            <text x="172" y="138" fill="#fff" font-size="10" font-family="Figtree" font-weight="700">Lomé</text>
+
+            <!-- Tanzania (Dar es Salaam) -->
+            <circle cx="210" cy="185" r="8" fill="var(--yellow)" />
+            <circle cx="210" cy="185" r="14" fill="rgba(255,209,0,0.25)" />
+            <text x="190" y="208" fill="#fff" font-size="10" font-family="Figtree" font-weight="700">Dar es Salaam</text>
+
+            <!-- Connection lines -->
+            <line x1="128" y1="110" x2="165" y2="140" stroke="rgba(255,209,0,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="165" y1="140" x2="210" y2="185" stroke="rgba(255,209,0,0.4)" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+            <!-- Decorative stars -->
+            <text x="250" y="80" fill="rgba(255,209,0,0.5)" font-size="16">✦</text>
+            <text x="90" y="180" fill="rgba(255,209,0,0.4)" font-size="12">✦</text>
+            <text x="260" y="170" fill="rgba(255,255,255,0.3)" font-size="10">✦</text>
+
+            <!-- Mixx label -->
+            <rect x="135" y="245" width="70" height="24" rx="12" fill="var(--yellow)" />
+            <text x="170" y="261" text-anchor="middle" fill="var(--blue)" font-size="11" font-family="Figtree" font-weight="800">MIXX</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats bar -->
+  <section class="about-stats">
+    <div class="container">
+      <div class="about-stats-grid">
+        <div class="about-stats-item">
+          <div class="num" data-i18n="stat1_num">+300,000</div>
+          <div class="lbl" data-i18n="stat1_lbl">Registered Merchants</div>
+        </div>
+        <div class="about-stats-item">
+          <div class="num" data-i18n="stat2_num">3</div>
+          <div class="lbl" data-i18n="stat2_lbl">African Countries</div>
+        </div>
+        <div class="about-stats-item">
+          <div class="num" data-i18n="stat3_num">4.8★</div>
+          <div class="lbl" data-i18n="stat3_lbl">Google Rating</div>
+        </div>
+        <div class="about-stats-item">
+          <div class="num" data-i18n="stat4_num">24/7</div>
+          <div class="lbl" data-i18n="stat4_lbl">Customer Support</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Story -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-two-col">
+        <div class="about-block">
+          <div class="accent-line"></div>
+          <h2 data-i18n="about_mission_h">Our Mission</h2>
+          <p data-i18n="about_mission_p">To make digital commerce and electronic payments accessible to every entrepreneur, independent business owner, and SME across Africa — regardless of size, location, or technical background.</p>
+        </div>
+        <div class="about-block">
+          <div class="accent-line" style="background:var(--blue);"></div>
+          <h2 data-i18n="about_story_h">Our Story</h2>
+          <p data-i18n="about_story_p">Mixx Business Lite was born from the understanding that African businesses needed a platform built for their reality — mobile-first, multilingual, works with local payment methods, and simple enough for anyone to use from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="values-section">
+    <div class="container">
+      <h2>Our Values</h2>
+      <p class="sub">The principles that guide everything we build for African merchants.</p>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="icon">🌍</div>
+          <h3>Africa First</h3>
+          <p>We build for African realities — mobile money, local languages, offline-first, and the unique needs of merchants across the continent.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">🔓</div>
+          <h3>Accessible to All</h3>
+          <p>No technical skills required. Our platform is designed so that anyone — from street vendors to corporates — can use it from day one.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon">🛡️</div>
+          <h3>Trusted & Secure</h3>
+          <p>PCI DSS compliant with bank-grade encryption. Your business data and your customers' payments are always protected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section class="awards-section">
+    <div class="container">
+      <h2 data-i18n="about_awards_h">Recognition</h2>
+      <div class="awards-grid">
+        <div class="award-card">
+          <svg class="award-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="22" r="16" fill="var(--yellow)" opacity=".9"/>
+            <text x="30" y="28" text-anchor="middle" font-size="16" fill="var(--blue)" font-weight="900">★</text>
+            <rect x="18" y="36" width="24" height="4" rx="2" fill="var(--yellow)" opacity=".4"/>
+            <rect x="22" y="42" width="16" height="10" rx="3" fill="var(--yellow)" opacity=".6"/>
+          </svg>
+          <h3 data-i18n="about_a1">Best Fintech Platform in West Africa</h3>
+        </div>
+        <div class="award-card">
+          <svg class="award-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="22" r="16" fill="var(--blue)" opacity=".15"/>
+            <circle cx="30" cy="22" r="12" fill="var(--blue)" opacity=".25"/>
+            <text x="30" y="28" text-anchor="middle" font-size="16" fill="var(--blue)" font-weight="900">🏆</text>
+            <rect x="18" y="36" width="24" height="4" rx="2" fill="var(--blue)" opacity=".2"/>
+            <rect x="22" y="42" width="16" height="10" rx="3" fill="var(--blue)" opacity=".3"/>
+          </svg>
+          <h3 data-i18n="about_a2">Best Mobile Commerce Solution</h3>
+        </div>
+        <div class="award-card">
+          <svg class="award-icon" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="22" r="16" fill="var(--yellow)" opacity=".7"/>
+            <text x="30" y="28" text-anchor="middle" font-size="16" fill="var(--blue)" font-weight="900">🚀</text>
+            <rect x="18" y="36" width="24" height="4" rx="2" fill="var(--yellow)" opacity=".4"/>
+            <rect x="22" y="42" width="16" height="10" rx="3" fill="var(--yellow)" opacity=".5"/>
+          </svg>
+          <h3 data-i18n="about_a3">Top SME Growth Tool 2025</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Powered by Axian Group -->
+  <section style="padding:50px 0;text-align:center;background:#fff;">
+    <div class="container">
+      <p style="font-size:.9rem;color:#888;margin-bottom:12px;">Powered by</p>
+      <div style="display:inline-flex;align-items:center;gap:16px;background:var(--bg-light);padding:16px 32px;border-radius:16px;border:1px solid #e0e7f0;">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="8" fill="var(--blue)"/>
+          <text x="18" y="24" text-anchor="middle" font-size="14" fill="#fff" font-weight="900" font-family="Figtree">A</text>
+        </svg>
+        <div style="text-align:left;">
+          <div style="font-weight:800;color:var(--blue);font-size:1.1rem;">Axian Group</div>
+          <div style="font-size:.8rem;color:#888;">Pan-African Technology Leader</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-i18n="cta_h2">Ready to Grow Your Business?</h2>
+      <p data-i18n="cta_sub">Join 300,000+ merchants already using Mixx Business Lite across Africa.</p>
+      <a href="app/index.html#register" class="btn btn-cta" data-i18n="cta_btn">Register Now — It's Free</a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>

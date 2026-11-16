@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('mbl_theme')||'blue')}catch(e){document.documentElement.setAttribute('data-theme','blue')}</script>
+  <title>FAQ — Mixx Business Lite</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <style>
+    .faq-hero { background: linear-gradient(135deg, var(--blue) 0%, #0051a8 100%); color: #fff; padding: 80px 0 60px; text-align: center; }
+    .faq-hero .badge { background: rgba(255,209,0,.2); color: var(--yellow); border: 1px solid rgba(255,209,0,.3); display: inline-block; padding: 6px 18px; border-radius: 20px; font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 20px; }
+    .faq-hero h1 { font-size: clamp(2rem,4vw,3rem); font-weight: 900; margin-bottom: 16px; }
+    .faq-hero p { font-size: 1.1rem; opacity: .85; max-width: 500px; margin: 0 auto; }
+
+    /* ── FAQ Section ── */
+    .faq-section { padding: 70px 0; }
+    .faq-layout { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: start; }
+    @media(max-width:900px){ .faq-layout{ grid-template-columns:1fr; gap:48px; } }
+
+    .faq-list { max-width: 680px; }
+    .faq-category { margin-bottom: 48px; }
+    .faq-category-title { font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--yellow); background: var(--blue); display: inline-block; padding: 5px 16px; border-radius: 20px; margin-bottom: 20px; }
+
+    .faq-item { border: 1.5px solid #e8edf5; border-radius: 14px; margin-bottom: 14px; overflow: hidden; transition: box-shadow .2s; }
+    .faq-item:hover { box-shadow: 0 4px 16px rgba(0,55,125,.08); }
+    .faq-item.open { border-color: var(--blue); box-shadow: 0 4px 20px rgba(0,55,125,.1); }
+
+    .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; cursor: pointer; gap: 16px; background: #fff; user-select: none; }
+    .faq-question span { font-size: .97rem; font-weight: 600; color: #1a2640; flex: 1; }
+    .faq-item.open .faq-question span { color: var(--blue); }
+    .faq-icon { width: 28px; height: 28px; background: var(--bg-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background .2s, transform .25s; }
+    .faq-item.open .faq-icon { background: var(--blue); transform: rotate(45deg); }
+    .faq-icon::before { content: '+'; color: var(--blue); font-size: 1.1rem; font-weight: 700; line-height: 1; }
+    .faq-item.open .faq-icon::before { color: #fff; }
+
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner { padding: 0 24px 22px; color: #555; line-height: 1.7; font-size: .95rem; background: #fff; }
+
+    /* ── Sidebar ── */
+    .faq-sidebar { position: sticky; top: 90px; display: flex; flex-direction: column; gap: 24px; }
+    .faq-search-card { background: var(--bg-light); border-radius: 16px; padding: 28px 24px; }
+    .faq-search-card h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 14px; }
+    .faq-search-wrap { position: relative; }
+    .faq-search-wrap input { width: 100%; padding: 11px 16px 11px 42px; border: 1.5px solid #d8e0ee; border-radius: 10px; font-size: .92rem; outline: none; font-family: 'Figtree', sans-serif; background: #fff; transition: border-color .2s; }
+    .faq-search-wrap input:focus { border-color: var(--blue); }
+    .faq-search-wrap::before { content: '🔍'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: .85rem; }
+
+    .faq-topics { background: #fff; border: 1.5px solid #e8edf5; border-radius: 16px; padding: 28px 24px; }
+    .faq-topics h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 16px; }
+    .faq-topic-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+    .faq-topic-list li a { display: flex; align-items: center; gap: 8px; color: #444; font-size: .9rem; text-decoration: none; padding: 8px 12px; border-radius: 8px; transition: background .15s, color .15s; }
+    .faq-topic-list li a:hover { background: var(--bg-light); color: var(--blue); font-weight: 500; }
+    .faq-topic-list li a .count { margin-left: auto; background: var(--bg-light); color: var(--blue); font-size: .75rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; }
+
+    .faq-cta-card { background: var(--blue); color: #fff; border-radius: 16px; padding: 28px 24px; text-align: center; }
+    .faq-cta-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; }
+    .faq-cta-card p { font-size: .88rem; opacity: .85; margin-bottom: 20px; }
+    .faq-cta-card a { background: var(--yellow); color: var(--blue); font-weight: 800; font-size: .9rem; padding: 11px 24px; border-radius: 8px; text-decoration: none; display: inline-block; transition: opacity .2s; }
+    .faq-cta-card a:hover { opacity: .9; }
+  </style>
+</head>
+<body>
+  <div id="nav-placeholder"></div>
+
+  <!-- Hero -->
+  <section class="faq-hero">
+    <div class="container">
+      <span class="badge" data-i18n="faq_badge">FAQ</span>
+      <h1 data-i18n="faq_h1">Frequently Asked Questions</h1>
+      <p data-i18n="faq_sub">Everything you need to know about Mixx Business Lite.</p>
+    </div>
+  </section>
+
+  <!-- FAQ content -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="faq-layout">
+
+        <!-- FAQ list -->
+        <div class="faq-list">
+
+          <!-- General -->
+          <div class="faq-category" id="faq-general">
+            <div class="faq-category-title">General</div>
+
+            <div class="faq-item" id="why-free">
+              <div class="faq-question">
+                <span data-i18n="faq_q1">Is Mixx Business Lite really free?</span>
+                <div class="faq-icon"></div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner" data-i18n="faq_a1">Yes! The Free plan is completely free forever. You can create up to 10 invoices per month, run an online store with 6 products, and use payment links — all at no cost. Upgrade to Professional when you need more.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span data-i18n="faq_q3">Does the platform work in my country?</span>
+                <div class="faq-icon"></div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner" data-i18n="faq_a3">Mixx Business Lite is currently available in Senegal, Togo, and Tanzania, with more countries coming soon. Contact us to check availability in your region.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span data-i18n="faq_q4">Can I use Mixx Business Lite without technical knowledge?</span>
+                <div class="faq-icon"></div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner" data-i18n="faq_a4">Absolutely. The platform is designed to be used by anyone — no coding or technical skills required. Set up your account in minutes and start accepting payments the same day.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Payments -->
+          <div class="faq-category" id="faq-payments">
+            <div class="faq-category-title">Payments</div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span data-i18n="faq_q2">What payment methods are supported?</span>
+                <div class="faq-icon"></div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner" data-i18n="faq_a2">We support Visa, Mastercard, mobile money (MTN, Orange Money, Airtel), bank transfers, and cash on delivery depending on your country. More payment methods are added regularly.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span data-i18n="faq_q5">Is my customers' payment data secure?</span>
+                <div class="faq-icon"></div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner" data-i18n="faq_a5">Yes. Mixx Business Lite is PCI DSS compliant and uses bank-grade encryption to protect all payment data. We never store full card details on our servers.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Plans & Billing -->
+          <div class="faq-category" id="faq-billing">
+            <div class="faq-category-title">Plans &amp; Billing</div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span data-i18n="faq_q6">Can I switch between plans?</span>
+                <div class="faq-icon"></div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner" data-i18n="faq_a6">Yes, you can upgrade or downgrade your plan at any time. When upgrading, your new features are activated immediately. When downgrading, changes take effect at your next billing cycle.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Support -->
+          <div class="faq-category" id="faq-support">
+            <div class="faq-category-title">Support &amp; Integration</div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span data-i18n="faq_q7">Do you offer customer support?</span>
+                <div class="faq-icon"></div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner" data-i18n="faq_a7">Yes! We offer 24/7 customer support via chat and email. Professional and Enterprise plan users also have access to priority support and a dedicated account manager.</div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span data-i18n="faq_q8">Can I integrate Mixx Business Lite with my website?</span>
+                <div class="faq-icon"></div>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner" data-i18n="faq_a8">Yes. We offer a full REST API, ready-made plugins for popular website platforms, and comprehensive developer documentation. Our integration team is also available to help.</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /faq-list -->
+
+        <!-- Sidebar -->
+        <div class="faq-sidebar">
+          <div class="faq-search-card">
+            <h3>Search FAQ</h3>
+            <div class="faq-search-wrap">
+              <input type="text" id="faqSearch" placeholder="Search questions..." />
+            </div>
+          </div>
+
+          <div class="faq-topics">
+            <h3>Browse Topics</h3>
+            <ul class="faq-topic-list">
+              <li><a href="#faq-general">General <span class="count">3</span></a></li>
+              <li><a href="#faq-payments">Payments <span class="count">2</span></a></li>
+              <li><a href="#faq-billing">Plans &amp; Billing <span class="count">1</span></a></li>
+              <li><a href="#faq-support">Support &amp; Integration <span class="count">2</span></a></li>
+            </ul>
+          </div>
+
+          <div class="faq-cta-card">
+            <h3>Still have questions?</h3>
+            <p>Our support team is available 24/7 to help you.</p>
+            <a href="./contact.html">Contact Support</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 data-i18n="cta_h2">Ready to Grow Your Business?</h2>
+      <p data-i18n="cta_sub">Join 300,000+ merchants already using Mixx Business Lite across Africa.</p>
+      <a href="app/index.html#register" class="btn btn-cta" data-i18n="cta_btn">Register Now — It's Free</a>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="./js/i18n.js"></script>
+  <script src="./js/main.js"></script>
+
+  <script>
+    // FAQ search filter
+    document.getElementById('faqSearch').addEventListener('input', function() {
+      const q = this.value.toLowerCase().trim();
+      document.querySelectorAll('.faq-item').forEach(function(item) {
+        const text = item.textContent.toLowerCase();
+        item.style.display = (!q || text.includes(q)) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

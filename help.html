@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('mbl_theme')||'blue')}catch(e){document.documentElement.setAttribute('data-theme','blue')}</script>
+  <title>Help Center — Mixx Business Lite</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+<div id="nav-placeholder"></div>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html" data-i18n="pg_home">Home</a><span class="sep">›</span><span data-i18n="help_badge">Help Center</span></div>
+    <div data-i18n="help_badge" class="badge">Help Center</div>
+    <h1 data-i18n="help_h1">How can we help you today?</h1>
+    <p data-i18n="help_sub">Guides, answers and direct support for Mixx Business Lite merchants.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div style="max-width:560px;margin:0 auto 40px;">
+      <input type="search" id="helpSearch" class="form-input" data-i18n-placeholder="help_search" placeholder="Search help topics…" style="padding:14px 18px;font-size:1rem;" />
+    </div>
+    <div class="content-grid" id="helpGrid">
+    <div class="content-card" data-help-card>
+      <div class="cc-icon">🚀</div>
+      <h3 data-i18n="help_c1_t">Getting started</h3>
+      <p data-i18n="help_c1_p">Create your account, set up your business profile and send your first invoice in minutes.</p>
+      <a class="card-link" href="faq.html#faq-general" data-i18n="help_c1_l">Open →</a>
+    </div>
+    <div class="content-card" data-help-card>
+      <div class="cc-icon">💳</div>
+      <h3 data-i18n="help_c2_t">Payments & payouts</h3>
+      <p data-i18n="help_c2_p">Accept Mixx Wallet, cards, PayPal and bank transfer. Learn how settlement works.</p>
+      <a class="card-link" href="faq.html#faq-payments" data-i18n="help_c2_l">Open →</a>
+    </div>
+    <div class="content-card" data-help-card>
+      <div class="cc-icon">🧾</div>
+      <h3 data-i18n="help_c3_t">Plans & billing</h3>
+      <p data-i18n="help_c3_p">Compare Free, Professional and Enterprise, and manage your subscription.</p>
+      <a class="card-link" href="faq.html#faq-billing" data-i18n="help_c3_l">Open →</a>
+    </div>
+    <div class="content-card" data-help-card>
+      <div class="cc-icon">🔌</div>
+      <h3 data-i18n="help_c4_t">Integrations & API</h3>
+      <p data-i18n="help_c4_p">Connect your website, plugins and webhooks with the Mixx Business Lite API.</p>
+      <a class="card-link" href="features/integration.html" data-i18n="help_c4_l">Open →</a>
+    </div>
+    <div class="content-card" data-help-card>
+      <div class="cc-icon">🛡️</div>
+      <h3 data-i18n="help_c5_t">Account security</h3>
+      <p data-i18n="help_c5_p">Two-factor login, team roles and how we protect your data and your customers.</p>
+      <a class="card-link" href="security.html" data-i18n="help_c5_l">Open →</a>
+    </div>
+    <div class="content-card" data-help-card>
+      <div class="cc-icon">💬</div>
+      <h3 data-i18n="help_c6_t">Talk to support</h3>
+      <p data-i18n="help_c6_p">Our team answers 24/7 by chat, WhatsApp and email in English and French.</p>
+      <a class="card-link" href="contact.html" data-i18n="help_c6_l">Open →</a>
+    </div>
+    </div>
+    <p id="helpEmpty" style="display:none;text-align:center;margin-top:24px;" data-i18n="help_empty">No topics match your search. Try the FAQ or contact support.</p>
+  </div>
+</section>
+<section class="cta-banner">
+  <div class="container">
+    <h2 data-i18n="cta_h2">Ready to Grow Your Business?</h2>
+    <p data-i18n="cta_sub">Join 300,000+ merchants already using Mixx Business Lite across Africa.</p>
+    <a href="app/index.html#register" class="btn btn-cta" data-i18n="cta_btn">Register Now — It's Free</a>
+  </div>
+</section>
+<div id="footer-placeholder"></div>
+<script src="./js/i18n.js"></script>
+<script src="./js/i18n-pages.js"></script>
+<script src="./js/main.js"></script>
+<script>
+document.getElementById('helpSearch').addEventListener('input', function(){
+  var q = this.value.toLowerCase().trim(), shown = 0;
+  document.querySelectorAll('[data-help-card]').forEach(function(c){ var ok = !q || c.textContent.toLowerCase().indexOf(q) > -1; c.style.display = ok ? '' : 'none'; if(ok) shown++; });
+  document.getElementById('helpEmpty').style.display = shown ? 'none' : 'block';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('mbl_theme')||'blue')}catch(e){document.documentElement.setAttribute('data-theme','blue')}</script>
+<title>Mixx Business Lite — Merchant Dashboard</title>
+<meta name="description" content="Invoicing, payment links, online store and cashier for Mixx Business Lite merchants — collect via Mixx Wallet, card, PayPal or bank transfer.">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+
+<!-- ================= AUTH (login / register / forgot) ================= -->
+<div class="auth-page" id="login-page">
+  <div class="auth-top">
+    <a class="wordmark" href="../index.html" title="Mixx Business Lite website"><span class="wm"><svg class="mixx-logo" viewBox="0 0 116 37" role="img" aria-label="Mixx" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64.5495 0H52.8869L51.1008 8.39339H63.6631L64.5495 0Z"/><path d="M115.364 10.6557H105.325L105.122 11.0272C102.934 15.0216 101.351 17.0453 100.405 17.0453C100.262 17.0453 99.0038 16.8727 98.1705 11.2528L98.0809 10.6557H82.4942L82.2917 11.0206C80.1039 15.0182 78.517 17.0419 77.5709 17.0419C77.4281 17.0419 76.1699 16.8694 75.3333 11.2495L75.2437 10.6523H64.7364L64.9522 11.5215C66.0212 15.7979 67.7541 20.3595 69.6066 23.7666C66.5855 27.6116 63.8765 31.6955 61.5593 35.9088L60.9883 36.9472H71.0275L71.2267 36.5823C73.4144 32.5846 75.0013 30.5576 75.9475 30.5576C76.0902 30.5576 77.3485 30.7334 78.1817 36.3501L78.2714 36.9472H93.858L94.0572 36.5823C96.245 32.5846 97.8319 30.5576 98.778 30.5576C98.9208 30.5576 100.182 30.7334 101.016 36.3501L101.105 36.9472H111.613L111.397 36.078C110.328 31.805 108.595 27.2434 106.746 23.833C109.77 19.9846 112.476 15.9007 114.793 11.6907L115.364 10.6557ZM92.4405 23.7732C90.5581 26.1685 88.7754 28.6965 87.1287 31.2941C86.1826 28.5605 85.0505 25.9396 83.9118 23.8396C85.7941 21.4476 87.5769 18.9197 89.2202 16.3187C90.173 19.0524 91.3018 21.6732 92.4405 23.7732Z"/><path d="M44.8809 2.40821C44.2103 1.76129 43.3903 1.23711 42.4575 0.855595C41.2689 0.334741 40.0074 0.0693359 38.6961 0.0693359L38.3209 0.0792882C38.1981 0.0759706 38.0885 0.0660191 37.9591 0.0726542C36.4319 0.0394787 34.8218 0.45749 33.3246 1.29683C32.0232 1.98356 30.8546 2.95892 29.9516 4.10679C29.9118 4.15323 29.8719 4.19968 29.8321 4.24944C28.0958 1.62526 25.2175 0.0693359 22.0437 0.0693359L21.6752 0.0826064C20.7955 0.0593836 19.9423 0.142322 19.1356 0.318152C18.787 0.404408 18.4085 0.533794 18.0267 0.702988C16.5594 1.22716 15.2182 2.07977 14.1193 3.18451L12.8079 0.0759724H5.25863L5.22211 0.314836C4.35563 5.9613 3.47587 12.3642 2.62268 18.5547C1.78276 24.6656 0.912957 30.9856 0.0497981 36.632L0 36.9538H10.5173L13.0669 17.941C13.6445 15.0414 14.2421 12.0424 16.5793 10.2111C17.2897 9.53098 18.611 9.23572 19.4941 9.93572C20.4602 10.785 20.3506 12.0191 20.2112 13.5817L17.0905 36.9538H27.1696L29.779 17.4699C30.3765 14.7462 30.9907 11.9296 33.1586 10.2509C33.9852 9.55752 35.2335 9.19259 36.1498 9.93572C37.0893 10.7386 36.993 11.986 36.8868 13.4158L33.7462 36.9505H43.968L47.9252 10.785C48.4033 7.65325 47.2646 4.51817 44.8809 2.40821Z"/><path d="M51.5472 10.6553L47.5103 36.9535H58.7811L62.8214 10.6553H51.5472Z"/></svg></span><span class="ws">Business Lite</span></a>
+    <div class="auth-top-right">
+      <a class="back" href="../index.html">← Back to website</a>
+      <div class="seg lang"><button data-lang-btn="en" onclick="setAppLang('en')">EN</button><button data-lang-btn="fr" onclick="setAppLang('fr')">FR</button></div>
+      <div class="seg theme"><button data-theme-btn="blue" onclick="setAppTheme('blue')" title="Blue"><span class="sw"></span></button><button data-theme-btn="white" onclick="setAppTheme('white')" title="White"><span class="sw"></span></button></div>
+    </div>
+  </div>
+  <div class="auth-body">
+
+    <!-- Login -->
+    <form class="login-card" id="auth-login" onsubmit="event.preventDefault(); submitLogin();" novalidate>
+      <div class="login-logo"><span class="wordmark"><span class="wm"><svg class="mixx-logo" viewBox="0 0 116 37" role="img" aria-label="Mixx" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64.5495 0H52.8869L51.1008 8.39339H63.6631L64.5495 0Z"/><path d="M115.364 10.6557H105.325L105.122 11.0272C102.934 15.0216 101.351 17.0453 100.405 17.0453C100.262 17.0453 99.0038 16.8727 98.1705 11.2528L98.0809 10.6557H82.4942L82.2917 11.0206C80.1039 15.0182 78.517 17.0419 77.5709 17.0419C77.4281 17.0419 76.1699 16.8694 75.3333 11.2495L75.2437 10.6523H64.7364L64.9522 11.5215C66.0212 15.7979 67.7541 20.3595 69.6066 23.7666C66.5855 27.6116 63.8765 31.6955 61.5593 35.9088L60.9883 36.9472H71.0275L71.2267 36.5823C73.4144 32.5846 75.0013 30.5576 75.9475 30.5576C76.0902 30.5576 77.3485 30.7334 78.1817 36.3501L78.2714 36.9472H93.858L94.0572 36.5823C96.245 32.5846 97.8319 30.5576 98.778 30.5576C98.9208 30.5576 100.182 30.7334 101.016 36.3501L101.105 36.9472H111.613L111.397 36.078C110.328 31.805 108.595 27.2434 106.746 23.833C109.77 19.9846 112.476 15.9007 114.793 11.6907L115.364 10.6557ZM92.4405 23.7732C90.5581 26.1685 88.7754 28.6965 87.1287 31.2941C86.1826 28.5605 85.0505 25.9396 83.9118 23.8396C85.7941 21.4476 87.5769 18.9197 89.2202 16.3187C90.173 19.0524 91.3018 21.6732 92.4405 23.7732Z"/><path d="M44.8809 2.40821C44.2103 1.76129 43.3903 1.23711 42.4575 0.855595C41.2689 0.334741 40.0074 0.0693359 38.6961 0.0693359L38.3209 0.0792882C38.1981 0.0759706 38.0885 0.0660191 37.9591 0.0726542C36.4319 0.0394787 34.8218 0.45749 33.3246 1.29683C32.0232 1.98356 30.8546 2.95892 29.9516 4.10679C29.9118 4.15323 29.8719 4.19968 29.8321 4.24944C28.0958 1.62526 25.2175 0.0693359 22.0437 0.0693359L21.6752 0.0826064C20.7955 0.0593836 19.9423 0.142322 19.1356 0.318152C18.787 0.404408 18.4085 0.533794 18.0267 0.702988C16.5594 1.22716 15.2182 2.07977 14.1193 3.18451L12.8079 0.0759724H5.25863L5.22211 0.314836C4.35563 5.9613 3.47587 12.3642 2.62268 18.5547C1.78276 24.6656 0.912957 30.9856 0.0497981 36.632L0 36.9538H10.5173L13.0669 17.941C13.6445 15.0414 14.2421 12.0424 16.5793 10.2111C17.2897 9.53098 18.611 9.23572 19.4941 9.93572C20.4602 10.785 20.3506 12.0191 20.2112 13.5817L17.0905 36.9538H27.1696L29.779 17.4699C30.3765 14.7462 30.9907 11.9296 33.1586 10.2509C33.9852 9.55752 35.2335 9.19259 36.1498 9.93572C37.0893 10.7386 36.993 11.986 36.8868 13.4158L33.7462 36.9505H43.968L47.9252 10.785C48.4033 7.65325 47.2646 4.51817 44.8809 2.40821Z"/><path d="M51.5472 10.6553L47.5103 36.9535H58.7811L62.8214 10.6553H51.5472Z"/></svg></span></span></div>
+      <h1>Log in to Mixx Business Lite</h1>
+      <div class="auth-sub">Welcome back — manage invoices, links, store and cashier.</div>
+      <div class="login-social">
+        <button type="button" onclick="socialLogin('Google')"><b style="color:#4285F4">G</b> Google</button>
+        <button type="button" onclick="socialLogin('Facebook')"><b style="color:#1877F2">f</b> Facebook</button>
+      </div>
+      <div class="login-divider">or</div>
+      <div class="auth-error" id="login-error" role="alert"></div>
+      <div class="login-field"><label for="login-id">Username or e-mail</label><input id="login-id" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="e.g. aissatou"/><div class="err">Enter your username or e-mail.</div></div>
+      <div class="login-field"><label for="login-pass">Password</label><input id="login-pass" type="password" autocomplete="current-password" placeholder="••••••••"/><div class="err">Enter your password.</div></div>
+      <div class="login-row"><label class="remember" onclick="toggleCheck(this)"><span class="checkbox-sq checked" id="remember-box">✓</span> Remember me</label><a href="#forgot">Forgot password?</a></div>
+      <button type="submit" class="login-submit">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Log in
+      </button>
+      <div class="login-foot">Don't have an account? <a href="#register">Register</a></div>
+      <div class="login-divider">or</div>
+      <button type="button" class="btn btn-ghost guest-btn" onclick="continueAsGuest()">👀 Continue as guest</button>
+      <div class="guest-note">Try every feature for free. Nothing is saved after you close the tab.</div>
+      <button type="button" class="btn-text demo-toggle" onclick="toggleDemoAccounts()">Demo accounts</button>
+      <div class="demo-accounts hidden" id="demo-accounts">
+        <div class="demo-row" onclick="fillDemo('aissatou','demo123')"><strong>Merchant</strong><span class="mono">aissatou</span><span class="mono">demo123</span></div>
+        <div class="demo-row" onclick="fillDemo('admin','Mixx@2026')"><strong>Admin</strong><span class="mono">admin</span><span class="mono">Mixx@2026</span></div>
+        <div class="demo-cap">Tap a row to fill the form.</div>
+      </div>
+    </form>
+
+    <!-- Register -->
+    <form class="login-card wide hidden" id="auth-register" onsubmit="event.preventDefault(); submitRegister();" novalidate>
+      <div class="login-logo"><span class="wordmark"><span class="wm"><svg class="mixx-logo" viewBox="0 0 116 37" role="img" aria-label="Mixx" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64.5495 0H52.8869L51.1008 8.39339H63.6631L64.5495 0Z"/><path d="M115.364 10.6557H105.325L105.122 11.0272C102.934 15.0216 101.351 17.0453 100.405 17.0453C100.262 17.0453 99.0038 16.8727 98.1705 11.2528L98.0809 10.6557H82.4942L82.2917 11.0206C80.1039 15.0182 78.517 17.0419 77.5709 17.0419C77.4281 17.0419 76.1699 16.8694 75.3333 11.2495L75.2437 10.6523H64.7364L64.9522 11.5215C66.0212 15.7979 67.7541 20.3595 69.6066 23.7666C66.5855 27.6116 63.8765 31.6955 61.5593 35.9088L60.9883 36.9472H71.0275L71.2267 36.5823C73.4144 32.5846 75.0013 30.5576 75.9475 30.5576C76.0902 30.5576 77.3485 30.7334 78.1817 36.3501L78.2714 36.9472H93.858L94.0572 36.5823C96.245 32.5846 97.8319 30.5576 98.778 30.5576C98.9208 30.5576 100.182 30.7334 101.016 36.3501L101.105 36.9472H111.613L111.397 36.078C110.328 31.805 108.595 27.2434 106.746 23.833C109.77 19.9846 112.476 15.9007 114.793 11.6907L115.364 10.6557ZM92.4405 23.7732C90.5581 26.1685 88.7754 28.6965 87.1287 31.2941C86.1826 28.5605 85.0505 25.9396 83.9118 23.8396C85.7941 21.4476 87.5769 18.9197 89.2202 16.3187C90.173 19.0524 91.3018 21.6732 92.4405 23.7732Z"/><path d="M44.8809 2.40821C44.2103 1.76129 43.3903 1.23711 42.4575 0.855595C41.2689 0.334741 40.0074 0.0693359 38.6961 0.0693359L38.3209 0.0792882C38.1981 0.0759706 38.0885 0.0660191 37.9591 0.0726542C36.4319 0.0394787 34.8218 0.45749 33.3246 1.29683C32.0232 1.98356 30.8546 2.95892 29.9516 4.10679C29.9118 4.15323 29.8719 4.19968 29.8321 4.24944C28.0958 1.62526 25.2175 0.0693359 22.0437 0.0693359L21.6752 0.0826064C20.7955 0.0593836 19.9423 0.142322 19.1356 0.318152C18.787 0.404408 18.4085 0.533794 18.0267 0.702988C16.5594 1.22716 15.2182 2.07977 14.1193 3.18451L12.8079 0.0759724H5.25863L5.22211 0.314836C4.35563 5.9613 3.47587 12.3642 2.62268 18.5547C1.78276 24.6656 0.912957 30.9856 0.0497981 36.632L0 36.9538H10.5173L13.0669 17.941C13.6445 15.0414 14.2421 12.0424 16.5793 10.2111C17.2897 9.53098 18.611 9.23572 19.4941 9.93572C20.4602 10.785 20.3506 12.0191 20.2112 13.5817L17.0905 36.9538H27.1696L29.779 17.4699C30.3765 14.7462 30.9907 11.9296 33.1586 10.2509C33.9852 9.55752 35.2335 9.19259 36.1498 9.93572C37.0893 10.7386 36.993 11.986 36.8868 13.4158L33.7462 36.9505H43.968L47.9252 10.785C48.4033 7.65325 47.2646 4.51817 44.8809 2.40821Z"/><path d="M51.5472 10.6553L47.5103 36.9535H58.7811L62.8214 10.6553H51.5472Z"/></svg></span></span></div>
+      <h1>Create your free account</h1>
+      <div class="auth-sub">Start collecting payments in minutes. No card required.</div>
+      <div class="plan-picker" id="plan-picker">
+        <button type="button" class="plan-opt active" data-plan="free" onclick="pickPlan('free')"><strong>Free</strong><span>0 XOF / month</span></button>
+        <button type="button" class="plan-opt" data-plan="pro" onclick="pickPlan('pro')"><strong>Professional</strong><span>$17 / month</span></button>
+        <button type="button" class="plan-opt" data-plan="enterprise" onclick="pickPlan('enterprise')"><strong>Enterprise</strong><span>Custom</span></button>
+      </div>
+      <div class="login-grid">
+        <div class="login-field"><label for="reg-name">Full name</label><input id="reg-name" autocomplete="name" placeholder="Aïssatou Diallo"/><div class="err">Please enter your name.</div></div>
+        <div class="login-field"><label for="reg-business">Business name</label><input id="reg-business" autocomplete="organization" placeholder="Boutique Aissatou"/><div class="err">Please enter your business name.</div></div>
+        <div class="login-field"><label for="reg-username">Username</label><input id="reg-username" autocomplete="username" autocapitalize="none" spellcheck="false" placeholder="e.g. boutique.aissatou"/><div class="err">Use 3–20 letters, numbers, dots or dashes.</div></div>
+        <div class="login-field"><label for="reg-email">E-mail</label><input id="reg-email" type="email" autocomplete="email" placeholder="you@business.com"/><div class="err">Enter a valid e-mail address.</div></div>
+        <div class="login-field"><label for="reg-phone">Mixx number</label><input id="reg-phone" type="tel" autocomplete="tel" placeholder="+221 77 000 00 00"/><div class="err">Enter your phone number.</div></div>
+        <div class="login-field"><label for="reg-country">Country</label>
+          <select id="reg-country"><option value="SN">Senegal</option><option value="TG">Togo</option><option value="TZ">Tanzania</option></select></div>
+        <div class="login-field"><label for="reg-pass">Password</label><input id="reg-pass" type="password" autocomplete="new-password" placeholder="At least 6 characters"/><div class="err">Password must be at least 6 characters.</div></div>
+        <div class="login-field"><label for="reg-pass2">Confirm password</label><input id="reg-pass2" type="password" autocomplete="new-password" placeholder="Type it again"/><div class="err">Passwords do not match.</div></div>
+      </div>
+      <div class="login-row" style="justify-content:flex-start;gap:8px;">
+        <label class="remember" onclick="toggleCheck(this)"><span class="checkbox-sq" id="terms-box"></span> I agree to the</label>
+        <a href="../legal.html#terms" target="_blank">Terms of Use</a>
+      </div>
+      <div class="login-field" style="margin-top:-10px;"><div class="err" id="terms-err">Please accept the Terms of Use.</div></div>
+      <button type="submit" class="login-submit">Create account</button>
+      <div class="login-foot">Already have an account? <a href="#login">Log in</a></div>
+    </form>
+
+    <!-- Forgot password -->
+    <form class="login-card hidden" id="auth-forgot" onsubmit="event.preventDefault(); submitForgot();" novalidate>
+      <div class="login-logo"><span class="wordmark"><span class="wm"><svg class="mixx-logo" viewBox="0 0 116 37" role="img" aria-label="Mixx" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64.5495 0H52.8869L51.1008 8.39339H63.6631L64.5495 0Z"/><path d="M115.364 10.6557H105.325L105.122 11.0272C102.934 15.0216 101.351 17.0453 100.405 17.0453C100.262 17.0453 99.0038 16.8727 98.1705 11.2528L98.0809 10.6557H82.4942L82.2917 11.0206C80.1039 15.0182 78.517 17.0419 77.5709 17.0419C77.4281 17.0419 76.1699 16.8694 75.3333 11.2495L75.2437 10.6523H64.7364L64.9522 11.5215C66.0212 15.7979 67.7541 20.3595 69.6066 23.7666C66.5855 27.6116 63.8765 31.6955 61.5593 35.9088L60.9883 36.9472H71.0275L71.2267 36.5823C73.4144 32.5846 75.0013 30.5576 75.9475 30.5576C76.0902 30.5576 77.3485 30.7334 78.1817 36.3501L78.2714 36.9472H93.858L94.0572 36.5823C96.245 32.5846 97.8319 30.5576 98.778 30.5576C98.9208 30.5576 100.182 30.7334 101.016 36.3501L101.105 36.9472H111.613L111.397 36.078C110.328 31.805 108.595 27.2434 106.746 23.833C109.77 19.9846 112.476 15.9007 114.793 11.6907L115.364 10.6557ZM92.4405 23.7732C90.5581 26.1685 88.7754 28.6965 87.1287 31.2941C86.1826 28.5605 85.0505 25.9396 83.9118 23.8396C85.7941 21.4476 87.5769 18.9197 89.2202 16.3187C90.173 19.0524 91.3018 21.6732 92.4405 23.7732Z"/><path d="M44.8809 2.40821C44.2103 1.76129 43.3903 1.23711 42.4575 0.855595C41.2689 0.334741 40.0074 0.0693359 38.6961 0.0693359L38.3209 0.0792882C38.1981 0.0759706 38.0885 0.0660191 37.9591 0.0726542C36.4319 0.0394787 34.8218 0.45749 33.3246 1.29683C32.0232 1.98356 30.8546 2.95892 29.9516 4.10679C29.9118 4.15323 29.8719 4.19968 29.8321 4.24944C28.0958 1.62526 25.2175 0.0693359 22.0437 0.0693359L21.6752 0.0826064C20.7955 0.0593836 19.9423 0.142322 19.1356 0.318152C18.787 0.404408 18.4085 0.533794 18.0267 0.702988C16.5594 1.22716 15.2182 2.07977 14.1193 3.18451L12.8079 0.0759724H5.25863L5.22211 0.314836C4.35563 5.9613 3.47587 12.3642 2.62268 18.5547C1.78276 24.6656 0.912957 30.9856 0.0497981 36.632L0 36.9538H10.5173L13.0669 17.941C13.6445 15.0414 14.2421 12.0424 16.5793 10.2111C17.2897 9.53098 18.611 9.23572 19.4941 9.93572C20.4602 10.785 20.3506 12.0191 20.2112 13.5817L17.0905 36.9538H27.1696L29.779 17.4699C30.3765 14.7462 30.9907 11.9296 33.1586 10.2509C33.9852 9.55752 35.2335 9.19259 36.1498 9.93572C37.0893 10.7386 36.993 11.986 36.8868 13.4158L33.7462 36.9505H43.968L47.9252 10.785C48.4033 7.65325 47.2646 4.51817 44.8809 2.40821Z"/><path d="M51.5472 10.6553L47.5103 36.9535H58.7811L62.8214 10.6553H51.5472Z"/></svg></span></span></div>
+      <div id="forgot-form-body">
+        <h1>Reset your password</h1>
+        <div class="auth-sub">Enter your e-mail and we'll send you a reset link.</div>
+        <div class="login-field"><label for="forgot-email">E-mail</label><input id="forgot-email" type="email" placeholder="you@business.com"/><div class="err">Enter a valid e-mail address.</div></div>
+        <button type="submit" class="login-submit">Send reset link</button>
+      </div>
+      <div id="forgot-done" class="auth-success hidden">
+        <div class="ring"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h1>Check your inbox</h1>
+        <div class="auth-sub">If an account exists for that e-mail, a reset link is on its way.</div>
+      </div>
+      <div class="login-foot"><a href="#login">← Back to log in</a></div>
+    </form>
+
+  </div>
+</div>
+
+<!-- ================= APP SHELL ================= -->
+<div class="shell" id="shell">
+  <header class="topbar">
+    <button class="icon-btn menu-btn" onclick="toggleSidebar()" title="Menu" aria-label="Menu">☰</button>
+    <a class="brand wordmark" href="#app" onclick="event.preventDefault(); showView('dashboard');"><span class="wm"><svg class="mixx-logo" viewBox="0 0 116 37" role="img" aria-label="Mixx" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64.5495 0H52.8869L51.1008 8.39339H63.6631L64.5495 0Z"/><path d="M115.364 10.6557H105.325L105.122 11.0272C102.934 15.0216 101.351 17.0453 100.405 17.0453C100.262 17.0453 99.0038 16.8727 98.1705 11.2528L98.0809 10.6557H82.4942L82.2917 11.0206C80.1039 15.0182 78.517 17.0419 77.5709 17.0419C77.4281 17.0419 76.1699 16.8694 75.3333 11.2495L75.2437 10.6523H64.7364L64.9522 11.5215C66.0212 15.7979 67.7541 20.3595 69.6066 23.7666C66.5855 27.6116 63.8765 31.6955 61.5593 35.9088L60.9883 36.9472H71.0275L71.2267 36.5823C73.4144 32.5846 75.0013 30.5576 75.9475 30.5576C76.0902 30.5576 77.3485 30.7334 78.1817 36.3501L78.2714 36.9472H93.858L94.0572 36.5823C96.245 32.5846 97.8319 30.5576 98.778 30.5576C98.9208 30.5576 100.182 30.7334 101.016 36.3501L101.105 36.9472H111.613L111.397 36.078C110.328 31.805 108.595 27.2434 106.746 23.833C109.77 19.9846 112.476 15.9007 114.793 11.6907L115.364 10.6557ZM92.4405 23.7732C90.5581 26.1685 88.7754 28.6965 87.1287 31.2941C86.1826 28.5605 85.0505 25.9396 83.9118 23.8396C85.7941 21.4476 87.5769 18.9197 89.2202 16.3187C90.173 19.0524 91.3018 21.6732 92.4405 23.7732Z"/><path d="M44.8809 2.40821C44.2103 1.76129 43.3903 1.23711 42.4575 0.855595C41.2689 0.334741 40.0074 0.0693359 38.6961 0.0693359L38.3209 0.0792882C38.1981 0.0759706 38.0885 0.0660191 37.9591 0.0726542C36.4319 0.0394787 34.8218 0.45749 33.3246 1.29683C32.0232 1.98356 30.8546 2.95892 29.9516 4.10679C29.9118 4.15323 29.8719 4.19968 29.8321 4.24944C28.0958 1.62526 25.2175 0.0693359 22.0437 0.0693359L21.6752 0.0826064C20.7955 0.0593836 19.9423 0.142322 19.1356 0.318152C18.787 0.404408 18.4085 0.533794 18.0267 0.702988C16.5594 1.22716 15.2182 2.07977 14.1193 3.18451L12.8079 0.0759724H5.25863L5.22211 0.314836C4.35563 5.9613 3.47587 12.3642 2.62268 18.5547C1.78276 24.6656 0.912957 30.9856 0.0497981 36.632L0 36.9538H10.5173L13.0669 17.941C13.6445 15.0414 14.2421 12.0424 16.5793 10.2111C17.2897 9.53098 18.611 9.23572 19.4941 9.93572C20.4602 10.785 20.3506 12.0191 20.2112 13.5817L17.0905 36.9538H27.1696L29.779 17.4699C30.3765 14.7462 30.9907 11.9296 33.1586 10.2509C33.9852 9.55752 35.2335 9.19259 36.1498 9.93572C37.0893 10.7386 36.993 11.986 36.8868 13.4158L33.7462 36.9505H43.968L47.9252 10.785C48.4033 7.65325 47.2646 4.51817 44.8809 2.40821Z"/><path d="M51.5472 10.6553L47.5103 36.9535H58.7811L62.8214 10.6553H51.5472Z"/></svg></span><span class="ws">Business Lite</span></a>
+    <div class="new-menu-wrap">
+      <button class="btn-new" onclick="toggleNewMenu()">+ <span class="nl">New</span> <span style="font-size:10px;">⌄</span></button>
+      <div class="new-dropdown" id="new-dropdown">
+        <button onclick="closeNewMenu(); openExpressInvoice();">⚡ Express Invoice</button>
+        <button onclick="closeNewMenu(); openInvoiceCreate();">📄 Detailed Invoice</button>
+        <button onclick="closeNewMenu(); openPaylinkCreate();">🔗 Payment Link</button>
+        <button onclick="closeNewMenu(); showView('product-new'); resetProductForm();">📦 New Product</button>
+        <button onclick="closeNewMenu(); openNewClient();">👤 New Client</button>
+      </div>
+    </div>
+    <div class="topbar-spacer"></div>
+    <a class="link-site" href="../index.html">🌐 Website</a>
+    <div class="seg lang"><button data-lang-btn="en" onclick="setAppLang('en')">EN</button><button data-lang-btn="fr" onclick="setAppLang('fr')">FR</button></div>
+    <div class="seg theme"><button data-theme-btn="blue" onclick="setAppTheme('blue')" title="Blue"><span class="sw"></span></button><button data-theme-btn="white" onclick="setAppTheme('white')" title="White"><span class="sw"></span></button></div>
+    <button class="btn-upgrade" id="upgrade-btn" onclick="openUpgrade()">⬆ <span class="up-label">Upgrade</span></button>
+    <div class="notif-wrap">
+      <button class="icon-btn" title="Notifications" onclick="toggleNotif()">🔔</button><span class="notif-dot" id="notif-dot"></span>
+      <div class="notif-dropdown" id="notif-dropdown">
+        <div class="notif-head"><span>Notifications</span><button class="btn-text" style="font-size:12px;" onclick="markAllRead()">Mark all as read</button></div>
+        <div id="notif-list"></div>
+      </div>
+    </div>
+    <div class="user-menu-wrap">
+      <button class="avatar" id="user-avatar" onclick="toggleUserMenu()">BA</button>
+      <div class="user-dropdown" id="user-dropdown">
+        <div style="padding:8px 11px 10px;border-bottom:1px solid var(--border);margin-bottom:4px;"><div style="font-weight:700;font-size:13px;" class="merchant-name">Boutique Aissatou</div><div style="font-size:11.5px;color:var(--muted);" id="user-email">aissatou@mixx.africa</div></div>
+        <button class="guest-only" onclick="closeUserMenu(); goRegisterFromGuest();">Create free account</button>
+        <button onclick="closeUserMenu(); showView('settings');">Account settings</button>
+        <button onclick="closeUserMenu(); openUpgrade();">Plans & billing</button>
+        <button onclick="closeUserMenu(); window.open('../help.html','_blank');">Help Center</button>
+        <button onclick="doLogout()">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sidebar" id="sidebar">
+    <div class="nav-item active" data-view="dashboard" onclick="showView('dashboard')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="13" y="3" width="8" height="5" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="13" y="10" width="8" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.7"/></svg>
+      <span>Dashboard</span>
+    </div>
+    <div class="nav-item" data-view="invoices" onclick="showView('invoices')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M7 3h8l4 4v14H7z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M15 3v4h4M9 12h6M9 16h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      <span>Invoices</span>
+    </div>
+    <div class="nav-item" data-view="paylinks" onclick="showView('paylinks')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9 15l6-6M8 16l-2 2a3.5 3.5 0 0 1-5-5l3-3a3.5 3.5 0 0 1 5 0M16 8l2-2a3.5 3.5 0 0 1 5 5l-3 3a3.5 3.5 0 0 1-5 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Payment links</span>
+    </div>
+    <div class="nav-item" data-view="store" onclick="showView('store')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M3 9l1.5-5h15L21 9M4 9h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <span>Online Store</span>
+    </div>
+    <div class="nav-item" data-view="pos-launcher" onclick="showView('pos-launcher')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18M7 14h3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+      <span>Cashier (POS)</span>
+    </div>
+    <div class="nav-item" data-view="products" onclick="showView('products')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M21 8l-9-5-9 5 9 5 9-5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M3 8v8l9 5 9-5V8M12 13v8" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <span>Products</span>
+    </div>
+    <div class="nav-item" data-view="integration" onclick="showView('integration')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 17V7l8-4 8 4v10l-8 4-8-4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M4 7l8 4 8-4M12 11v10" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+      <span>Payment methods</span>
+    </div>
+    <div class="nav-item" data-view="clients" onclick="showView('clients')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="8.5" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M15.8 14.8c2.6.2 4.7 2.2 4.7 5.2" stroke="currentColor" stroke-width="1.7"/></svg>
+      <span>Clients</span>
+    </div>
+    <div class="nav-item" data-view="reports" onclick="showView('reports')">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 20V10M11 20V4M18 20v-7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+      <span>Reports</span>
+    </div>
+    <div class="nav-foot">
+      <div class="side-plan" id="side-plan"><strong id="side-plan-name">Free plan</strong><span id="side-plan-desc">7 of 10 invoices used this month</span><button onclick="openUpgrade()">Upgrade</button></div>
+      <div class="nav-sep"></div>
+      <div class="nav-item" data-view="settings" onclick="showView('settings')">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.7"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z" stroke="currentColor" stroke-width="1.5"/></svg>
+        <span>Settings</span>
+      </div>
+      <a class="nav-item" href="../help.html" target="_blank">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6v.6M12 17h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span>Help Center</span>
+      </a>
+      <a class="nav-item" href="../index.html">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>Back to website</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="guest-banner hidden" id="guest-banner">
+      <div><strong>You're in guest mode.</strong> <span>Everything works, but nothing is saved after you close this tab.</span></div>
+      <button class="btn btn-primary btn-sm" onclick="goRegisterFromGuest()">Create free account</button>
+    </div>
+
+    <!-- ================= DASHBOARD ================= -->
+    <section class="view active" id="view-dashboard">
+      <div class="page-head">
+        <div><h1>Dashboard</h1><p class="page-sub" id="dash-sub"></p></div>
+        <div class="head-actions"><button class="btn btn-ghost" onclick="showView('reports')">📊 Full reports</button></div>
+      </div>
+      <div class="dash-filters" role="toolbar" aria-label="Dashboard filters">
+        <div class="seg-tabs" id="dash-period">
+          <button data-period="today" onclick="setDashPeriod('today')">Today</button>
+          <button data-period="week" onclick="setDashPeriod('week')">This week</button>
+          <button data-period="month" onclick="setDashPeriod('month')">This month</button>
+          <button data-period="all" onclick="setDashPeriod('all')">All time</button>
+        </div>
+        <label class="dash-select"><span>Client</span><select id="dash-client" onchange="setDashClient(this.value)"></select></label>
+        <button class="btn-text dash-reset" id="dash-reset" onclick="resetDashFilters()">Reset filters</button>
+      </div>
+
+      <div class="dash-top">
+        <div class="card dash-hero clickable" onclick="showView('reports')" tabindex="0" role="button">
+          <div class="dh-label">Total collected</div>
+          <div class="dh-value tabular" id="dh-total">0 XOF</div>
+          <div class="dh-delta" id="dh-delta"></div>
+          <div class="dh-split">
+            <div><span>Fees (MDR)</span><strong class="tabular" id="dh-fees">0</strong></div>
+            <div><span>Net received</span><strong class="tabular" id="dh-net">0</strong></div>
+            <div><span>Transactions</span><strong class="tabular" id="dh-count">0</strong></div>
+            <div><span>Average ticket</span><strong class="tabular" id="dh-avg">0</strong></div>
+          </div>
+        </div>
+        <div class="card dash-chart">
+          <div class="card-title"><h3>Revenue over time</h3><span class="hint" id="dc-hint"></span></div>
+          <div class="chart-wrap" id="dash-chart-wrap"><svg id="dash-chart" viewBox="0 0 640 230" width="100%" role="img" aria-label="Revenue over time"></svg><div class="chart-tip" id="dash-tip" hidden></div></div>
+        </div>
+      </div>
+
+      <div class="dash-section-title"><h3>By payment method</h3><button class="btn-text" onclick="showView('integration')">Manage payment methods →</button></div>
+      <div class="grid dash-gw" id="dash-gw"></div>
+
+      <div class="grid dash-mid">
+        <div class="card">
+          <div class="card-title"><h3>Share by payment method</h3></div>
+          <div class="donut-row"><div class="donut-wrap"><svg id="dash-donut" viewBox="0 0 160 160" role="img" aria-label="Share by payment method"></svg><div class="donut-center"><strong id="donut-total"></strong><span>XOF</span></div></div><div class="donut-legend" id="donut-legend"></div></div>
+        </div>
+        <div class="card">
+          <div class="card-title"><h3>Top clients</h3><button class="btn-text" onclick="showView('clients')">All clients</button></div>
+          <div id="dash-top-clients"></div>
+        </div>
+      </div>
+
+      <div class="grid kpi-row dash-kpis">
+        <div class="card kpi clickable" onclick="showView('invoices'); setInvoiceSeg('active');" tabindex="0" role="button"><div class="kpi-icon" style="background:var(--primary-soft);">🧾</div><div><div class="kpi-label">Active invoices</div><div class="kpi-value tabular" id="kpi-active">—</div></div></div>
+        <div class="card kpi clickable" onclick="showView('invoices'); setInvoiceSeg('paid');" tabindex="0" role="button"><div class="kpi-icon" style="background:var(--green-soft);">✅</div><div><div class="kpi-label">Paid invoices</div><div class="kpi-value tabular" id="kpi-paid">—</div></div></div>
+        <div class="card kpi clickable" onclick="showView('paylinks')" tabindex="0" role="button"><div class="kpi-icon" style="background:var(--primary-soft);">🔗</div><div><div class="kpi-label">Payment links</div><div class="kpi-value tabular" id="kpi-links">—</div></div></div>
+        <div class="card kpi clickable" onclick="showView('clients')" tabindex="0" role="button"><div class="kpi-icon" style="background:var(--amber-soft);">👥</div><div><div class="kpi-label">Clients</div><div class="kpi-value tabular" id="kpi-clients">—</div></div></div>
+        <div class="card kpi clickable" onclick="showView('store')" tabindex="0" role="button"><div class="kpi-icon" style="background:var(--primary-soft);">🛍️</div><div><div class="kpi-label">Store orders</div><div class="kpi-value tabular" id="kpi-store">—</div></div></div>
+        <div class="card kpi clickable" onclick="showView('pos-launcher')" tabindex="0" role="button"><div class="kpi-icon" style="background:var(--green-soft);">🏪</div><div><div class="kpi-label">Cashier sales</div><div class="kpi-value tabular" id="kpi-pos">—</div></div></div>
+      </div>
+
+      <div class="grid dash-mid">
+        <div class="card">
+          <div class="card-title"><h3>📋 Recent invoices</h3><button class="btn-text" onclick="showView('invoices')">View all</button></div>
+          <div id="recent-invoices"></div>
+        </div>
+        <div class="card">
+          <div class="card-title"><h3>💳 Latest transactions</h3><button class="btn-text" onclick="showView('pos-launcher')">View all</button></div>
+          <div id="dash-tx"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INVOICES LIST ================= -->
+    <section class="view" id="view-invoices">
+      <div class="page-head">
+        <h1>Invoices</h1>
+        <div class="head-actions"><button class="btn btn-primary" onclick="openInvoiceCreate()">+ Add Invoice</button></div>
+      </div>
+      <div class="search-bar" style="justify-content:space-between;">
+        <div style="display:flex;gap:8px;">
+          <button class="seg-pill" id="seg-active" onclick="setInvoiceSeg('active')">Active <span class="n" id="seg-active-n">0</span></button>
+          <button class="seg-pill" id="seg-paid" onclick="setInvoiceSeg('paid')">Paid <span class="n" id="seg-paid-n">0</span></button>
+        </div>
+        <div style="display:flex;gap:8px;">
+          <div class="filter-wrap"><button class="filter-btn" id="filter-btn" onclick="toggleFilterPanel(event)">⚙ Filter</button>
+            <div class="filter-panel" id="filter-panel" onclick="event.stopPropagation()">
+              <div class="fp-label">Invoice type</div>
+              <label><input type="radio" name="inv-type" value="all" checked onchange="setInvoiceType(this.value)"> All types</label>
+              <label><input type="radio" name="inv-type" value="express" onchange="setInvoiceType(this.value)"> ⚡ Express</label>
+              <label><input type="radio" name="inv-type" value="detailed" onchange="setInvoiceType(this.value)"> 📋 Detailed</label>
+              <div class="fp-label" style="margin-top:10px;">Sort by</div>
+              <select id="inv-sort" onchange="renderInvoices()" style="width:100%;padding:8px;border-radius:8px;border:1px solid var(--border);font-family:inherit;"><option value="date">Newest first</option><option value="amount">Highest amount</option></select>
+              <button class="btn btn-ghost btn-sm" style="width:100%;justify-content:center;margin-top:10px;" onclick="resetInvoiceFilter()">Reset filters</button>
+            </div></div>
+          <input id="inv-search" oninput="renderInvoices()" placeholder="🔍 Search invoices..." style="border-radius:20px;"/>
+        </div>
+      </div>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Invoice Number</th><th>Client</th><th>Date</th><th>Invoice value (XOF)</th><th>Status</th><th></th></tr></thead>
+            <tbody id="invoices-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DETAILED INVOICE CREATE ================= -->
+    <section class="view" id="view-invoice-create">
+      <button class="back-btn" onclick="showView('invoices')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back to invoices</span></button><div class="breadcrumb"><strong id="ic-title">📄 Detailed</strong><span class="chip-muted" id="ic-status-chip">Draft</span></div>
+      <div style="display:flex;justify-content:flex-end;margin-bottom:14px;">
+        <button class="btn btn-green" onclick="finalizeInvoiceCreate()">+ Create invoice</button>
+      </div>
+      <div class="grid inv-grid">
+        <div class="card">
+          <div class="grid parties-grid">
+            <div class="party-card">
+              <div class="party-label">From:</div>
+              <div class="party-name"><span class="avatar avatar-sm merchant-initial" style="background:var(--avatar-3);">B</span><span class="merchant-name">Boutique Aissatou</span></div>
+              <div class="party-detail merchant-email">aissatou@mixx.africa</div>
+              <div class="party-detail merchant-city">Dakar, Sénégal</div>
+            </div>
+            <div class="party-card">
+              <div class="party-label">To:</div>
+              <select id="ic-client-select" onchange="renderInvoiceCreateParty()" style="width:100%;border:none;background:transparent;font-weight:700;font-size:13.5px;color:var(--ink);margin-bottom:6px;padding:0;"></select>
+              <div class="party-detail" id="ic-client-email"></div>
+              <div class="party-detail" id="ic-client-phone"></div>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Description</th><th>Price</th><th>Quantity</th><th>Total (XOF)</th><th></th></tr></thead>
+              <tbody id="ic-items-tbody"></tbody>
+            </table>
+          </div>
+          <button class="btn-text" style="margin:10px 0;display:block;" onclick="addInvoiceCreateItem()">+ Add item to invoice</button>
+          <div style="display:flex;justify-content:space-between;align-items:center;padding-top:10px;border-top:1px solid var(--border);">
+            <span style="font-weight:700;font-size:14px;">Total <span id="ic-discount-note" style="font-weight:600;color:var(--green);font-size:12px;"></span></span>
+            <span class="tabular" id="ic-total-display" style="font-weight:800;font-size:17px;color:var(--primary);">0 XOF</span>
+          </div>
+          <div style="margin-top:20px;">
+            <div style="font-weight:700;font-size:13.5px;margin-bottom:8px;">Additional fields <span style="color:var(--muted);font-weight:400;">ⓘ</span></div>
+            <div style="background:var(--surface-muted);border-radius:10px;padding:16px;color:var(--ink-soft);font-size:12.5px;text-align:center;" id="ic-additional-fields">There are no additional fields yet.</div>
+            <button class="btn-text" style="margin-top:8px;" onclick="addIcField()">+ Add field</button>
+          </div>
+        </div>
+        <div>
+          <div class="checkbox-row" style="margin-bottom:16px;" onclick="toggleIcDiscount()">
+            <span class="checkbox-sq" id="ic-discount-checkbox"></span> Add discount
+          </div>
+          <div class="field" id="ic-discount-field" style="display:none;margin-top:-6px;"><label>Discount (%)</label><input id="ic-discount" type="number" min="0" max="100" value="10" oninput="renderIcTotal()"/></div>
+          <div class="field">
+            <label>Invoice Language</label>
+            <select id="ic-language"><option>English</option><option>Français</option></select>
+          </div>
+          <div class="card payment-methods-card">
+            <div class="card-title"><h3>💳 Payment methods</h3></div>
+            <div id="ic-methods"></div>
+            <button class="btn-text" style="margin-top:6px;" onclick="showView('integration')">Manage payment methods & MDR</button>
+            <button class="btn-text" style="margin-top:6px;display:block;" onclick="openPayout()">Edit Payment Detail</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAYMENT LINKS LIST ================= -->
+    <section class="view" id="view-paylinks">
+      <div class="page-head">
+        <h1>Payment links</h1>
+        <div class="head-actions"><button class="btn btn-primary" onclick="openPaylinkCreate()">+ New link</button></div>
+      </div>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+          <table><thead><tr><th>Title</th><th>Amount</th><th>Type</th><th>Collected</th><th>Status</th><th></th></tr></thead>
+          <tbody id="paylinks-tbody"></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PAYMENT LINK CREATE ================= -->
+    <section class="view" id="view-paylink-create">
+      <button class="back-btn" onclick="showView('paylinks')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back to payment links</span></button><h1 style="margin-bottom:20px;">Create a payment link</h1>
+      <div class="card" style="max-width:640px;">
+        <div class="dropzone" style="margin-bottom:18px;"><div class="dz-inner">🖼️ Upload store logo</div><input type="file" accept="image/*" onchange="previewUpload(this)"/></div>
+        <div class="field"><label>Payment link title</label><input id="pl-title" placeholder="Payment for Cake"/></div>
+        <div class="field"><label>Requested amount</label><input id="pl-amount" class="tabular" value="500"/></div>
+        <div class="toggle-row"><span>Repeated amount</span><button class="toggle on" id="pl-repeated" onclick="toggleBtn(this)"></button></div>
+        <div class="toggle-row"><span>Enable the quantity field</span><button class="toggle" id="pl-qty" onclick="toggleBtn(this)"></button></div>
+        <div class="toggle-row"><span>Payment link will be sold until</span><button class="toggle" id="pl-until" onclick="toggleBtn(this); toggleShow('pl-until-field', this)"></button></div>
+        <div class="field" id="pl-until-field" style="display:none;"><label>Sold until</label><input type="date" id="pl-until-date"/></div>
+        <div class="field" style="margin-top:10px;"><label>Currency</label><input value="XOF" readonly/></div>
+        <div style="font-weight:700;font-size:13.5px;margin:6px 0 10px;">Payment methods</div>
+        <div class="checkbox-row" onclick="toggleCheck(this)"><span class="checkbox-sq"></span> Cash on Delivery</div>
+        <div class="checkbox-row" onclick="toggleCheck(this)"><span class="checkbox-sq checked">✓</span> Card, credit/debit</div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:14px;" onclick="submitPaylinkCreate()">Create the link 🔗</button>
+      </div>
+    </section>
+
+    <!-- ================= ONLINE STORE ================= -->
+    <section class="view" id="view-store">
+      <div class="page-head">
+        <h1>Online store</h1>
+        <div class="head-actions">
+          <button class="btn btn-ghost" onclick="openStorefrontPreview()">Preview storefront</button>
+          <button class="btn btn-primary" onclick="showView('product-new'); resetProductForm();">+ Add product</button>
+        </div>
+      </div>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr);" id="store-grid"></div>
+    </section>
+
+    <!-- ================= POS LAUNCHER ================= -->
+    <section class="view" id="view-pos-launcher">
+      <h1 style="margin-bottom:20px;">Cashier</h1>
+      <div style="display:flex;gap:12px;margin-bottom:16px;">
+        <button class="btn btn-primary" style="flex:1;justify-content:center;padding:14px;font-size:14px;" onclick="openPosSell()">▶ Open the cashier system (POS)</button>
+        <button class="icon-btn" style="width:48px;height:48px;border-radius:50%;" title="Cashier settings" onclick="openPosSettings()">⚙️</button>
+      </div>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-title"><h3>📊 Statistics for the current period</h3></div>
+        <div style="display:flex;gap:32px;flex-wrap:wrap;">
+          <div class="kpi"><div class="kpi-icon" style="background:var(--surface-2);">🕐</div><div><div class="kpi-label">Total time</div><div class="kpi-value tabular">6h 12m</div></div></div>
+          <div class="kpi"><div class="kpi-icon" style="background:var(--green-soft);">💵</div><div><div class="kpi-label">Total sales</div><div class="kpi-value tabular" id="pos-total-sales">842 XOF</div></div></div>
+          <div class="kpi"><div class="kpi-icon" style="background:var(--amber-soft);">🧾</div><div><div class="kpi-label">Total orders</div><div class="kpi-value tabular" id="pos-total-orders">14</div></div></div>
+        </div>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px;">
+        <div class="card"><div style="font-weight:700;font-size:13.5px;margin-bottom:8px;">🔗 Kitchen Display URL</div><div class="link-row"><input readonly value="pos.mixx.africa/kitchen/a92f"/><button class="copy-btn" onclick="copyText(this.previousElementSibling.value); pushToast('Link copied','Paste it anywhere to share.')">Copy</button></div></div>
+        <div class="card"><div style="font-weight:700;font-size:13.5px;margin-bottom:8px;">🔗 Client Display URL</div><div class="link-row"><input readonly value="pos.mixx.africa/display/a92f"/><button class="copy-btn" onclick="copyText(this.previousElementSibling.value); pushToast('Link copied','Paste it anywhere to share.')">Copy</button></div></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><h3>📅 Daily transaction history</h3><span class="hint">Today</span></div>
+        <div id="tx-history"></div>
+      </div>
+    </section>
+
+    <!-- ================= PRODUCTS ================= -->
+    <section class="view" id="view-products">
+      <div class="page-head"><h1>Products</h1><div class="head-actions"><button class="btn btn-primary" onclick="showView('product-new'); resetProductForm();">+ Add Product</button></div></div>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+          <table><thead><tr><th>Name</th><th>Quantity</th><th>Price (XOF)</th><th>Published</th><th></th></tr></thead>
+          <tbody id="products-tbody"></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= NEW PRODUCT ================= -->
+    <section class="view" id="view-product-new">
+      <button class="back-btn" onclick="goBackFromProduct()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back</span></button>
+      <div class="grid inv-grid">
+        <div class="card">
+          <div class="card-title"><h3 id="pf-title">New Product</h3><button class="btn btn-primary btn-sm" onclick="submitProductForm()" id="pf-submit-btn">Add product</button></div>
+          <div class="field"><label>Product name</label><input id="pf-name" placeholder="e.g. Sac à main cuir"/></div>
+          <div class="grid" style="grid-template-columns:1fr 1fr;">
+            <div class="field"><label>Sell price (XOF)</label><input id="pf-price" class="tabular" value="10 000"/></div>
+            <div class="field"><label>SKU / Barcode</label><input id="pf-sku" placeholder="SM-0142"/></div>
+          </div>
+          <div class="toggle-row"><span>Is quantity limited?</span><button class="toggle on" id="pf-limited" onclick="toggleBtn(this)"></button></div>
+          <div class="toggle-row"><span>Show this product has variants?</span><button class="toggle" id="pf-variants" onclick="toggleBtn(this)"></button></div>
+          <div class="field" style="margin-top:10px;"><label>Product details</label><textarea id="pf-details" rows="3" placeholder="Describe the product..."></textarea></div>
+          <div class="toggle-row"><span>Publish online</span><button class="toggle on" id="pf-publish" onclick="toggleBtn(this)"></button></div>
+        </div>
+        <div class="dropzone" style="min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+          <div class="dz-inner"><div style="font-size:26px;">🖼️</div>Drag image here or click to upload</div>
+          <input type="file" accept="image/*" id="pf-image" onchange="previewUpload(this)"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CLIENTS ================= -->
+    <section class="view" id="view-clients">
+      <div class="page-head"><h1>Clients</h1><div class="head-actions"><button class="btn btn-primary" onclick="openNewClient()">+ Add Client</button></div></div>
+      <div class="card" style="padding:0;">
+        <div class="table-wrap">
+          <table><thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Number of Invoices</th><th></th></tr></thead>
+          <tbody id="clients-tbody"></tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INTEGRATION ================= -->
+    <section class="view" id="view-integration">
+      <div class="page-head"><div><h1>Payment methods & MDR</h1><p class="page-sub">Turn each payment method on or off, see its MDR (fee per transaction) and how it settles into your account.</p></div>
+        <div class="head-actions"><button class="btn btn-ghost" onclick="openPayout()">🏦 Payout account</button></div></div>
+      <div class="card" style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--green);flex:none;"></div>
+        <div style="flex:1;"><strong style="font-size:14px;">Connected — Mixx Business Payments</strong><div class="page-sub" style="margin-top:2px;">Last settlement: today, 09:14</div></div>
+      </div>
+      <div class="grid gw-grid" id="gw-cards"></div>
+      <div class="grid two-col" style="margin-top:16px;">
+        <div class="card">
+          <div class="card-title"><h3>🧮 MDR calculator</h3><span class="hint">What you receive after fees</span></div>
+          <div class="calc-grid">
+            <div class="field"><label>Amount (XOF)</label><input id="calc-amount" type="number" min="0" value="25000" oninput="renderCalc()"/></div>
+            <div class="field"><label>Payment method</label><select id="calc-method" onchange="renderCalc()"></select></div>
+          </div>
+          <div class="calc-out" id="calc-out"></div>
+          <div class="table-wrap" style="margin-top:14px;"><table><thead><tr><th>Payment method</th><th>MDR</th><th>Fee</th><th>You receive</th></tr></thead><tbody id="calc-table"></tbody></table></div>
+        </div>
+        <div class="card">
+          <div class="card-title"><h3>How it works</h3></div>
+          <ul class="how-list">
+            <li><strong>MDR</strong> (merchant discount rate) is the percentage taken from each payment by the payment method.</li>
+            <li>Rates are set by Mixx Business Lite. Your account may have a special rate agreed with your account manager.</li>
+            <li>Switching a method off hides it from your checkout pages, invoices and cashier straight away.</li>
+            <li>A method marked <em>Disabled by admin</em> can only be switched back on by the Mixx team.</li>
+            <li>Card and PayPal payments route through licensed, PCI-DSS regulated gateways. Mixx Wallet and bank transfer settle natively.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SETTINGS ================= -->
+    <section class="view" id="view-settings">
+      <button class="back-btn" onclick="showView('dashboard')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back to dashboard</span></button>
+      <div class="page-head"><div><h1>Account settings</h1><p class="page-sub">Business profile, preferences and payout account.</p></div>
+        <div class="head-actions"><button class="btn btn-primary" onclick="saveSettings()">Save changes</button></div></div>
+      <div class="settings-grid">
+        <div class="card">
+          <h3>🏪 Business profile</h3>
+          <div class="field"><label>Username</label><div class="mono" id="st-username" style="padding:11px 0;font-weight:700;"></div></div>
+          <div class="field"><label>Business name</label><input id="st-business"/></div>
+          <div class="field"><label>Owner name</label><input id="st-owner"/></div>
+          <div class="field"><label>E-mail</label><input id="st-email" type="email"/></div>
+          <div class="field"><label>Mixx number</label><input id="st-phone"/></div>
+          <div class="field"><label>City</label><input id="st-city"/></div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:16px;">
+            <h3>🎨 Preferences</h3>
+            <div class="toggle-row"><span>Language</span><div class="seg lang"><button data-lang-btn="en" onclick="setAppLang('en')">EN</button><button data-lang-btn="fr" onclick="setAppLang('fr')">FR</button></div></div>
+            <div class="toggle-row"><span>Colour theme</span><div class="seg theme" style="display:inline-flex;"><button data-theme-btn="blue" onclick="setAppTheme('blue')"><span class="sw"></span> <span>Blue</span></button><button data-theme-btn="white" onclick="setAppTheme('white')"><span class="sw"></span> <span>White</span></button></div></div>
+            <div class="toggle-row"><span>E-mail me when an invoice is paid</span><button class="toggle on" onclick="toggleBtn(this)"></button></div>
+            <div class="toggle-row"><span>SMS receipts to customers</span><button class="toggle on" onclick="toggleBtn(this)"></button></div>
+            <div class="toggle-row"><span>Two-factor login</span><button class="toggle" onclick="toggleBtn(this)"></button></div>
+          </div>
+          <div class="card member-only" style="margin-bottom:16px;">
+            <h3>🔑 Change password</h3>
+            <div class="field"><label>Current password</label><input id="st-cur" type="password" autocomplete="current-password"/><div class="err"></div></div>
+            <div class="field"><label>New password</label><input id="st-new" type="password" autocomplete="new-password" placeholder="At least 6 characters"/><div class="err">Password must be at least 6 characters.</div></div>
+            <div class="field"><label>Confirm new password</label><input id="st-new2" type="password" autocomplete="new-password"/><div class="err">Passwords do not match.</div></div>
+            <button class="btn btn-primary btn-sm" onclick="changeMyPassword()">Update password</button>
+          </div>
+          <div class="card">
+            <h3>🏦 Payout account</h3>
+            <div class="page-sub" id="st-payout-summary" style="margin-bottom:12px;"></div>
+            <button class="btn btn-ghost btn-sm" onclick="openPayout()">Edit payout account</button>
+            <button class="btn btn-ghost btn-sm" onclick="openUpgrade()">Plans & billing</button>
+            <button class="btn btn-ghost btn-sm" onclick="exportMyData()">⬇ Download my data</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= REPORTS ================= -->
+    <section class="view" id="view-reports">
+      <div class="page-head"><div><h1>Reports</h1><p class="page-sub" id="rep-sub"></p></div>
+        <div class="head-actions">
+          <select id="rep-period" class="filter-btn" onchange="renderReports()"><option value="month">This month</option><option value="3m">Last 3 months</option><option value="6m" selected>Last 6 months</option><option value="all">All time</option></select>
+          <button class="btn btn-ghost" onclick="exportReportCsv()">⬇ Export CSV</button>
+          <button class="btn btn-primary" onclick="exportReportPdf()">⬇ Export PDF</button>
+        </div></div>
+      <div class="grid kpi-row" id="rep-kpis"></div>
+      <div class="grid two-col">
+        <div class="card">
+          <div class="card-title"><h3>Revenue trend</h3><span class="hint" id="rep-trend-hint">Last 6 months · XOF</span></div>
+          <svg id="trend-chart" width="100%" viewBox="0 0 640 220" style="overflow:visible;"></svg>
+        </div>
+        <div class="card">
+          <div class="card-title"><h3>Collected by payment method</h3></div>
+          <div id="method-bars"></div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title"><h3>Payment methods & MDR</h3></div>
+        <div class="table-wrap"><table><thead><tr><th>Payment method</th><th>Transactions</th><th>Collected</th><th>MDR</th><th>Fees</th><th>Net</th></tr></thead><tbody id="rep-gw"></tbody></table></div>
+      </div>
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title"><h3>Top clients</h3></div>
+        <div id="top-clients"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- ================= POS SELL (full screen) ================= -->
+<div class="checkout-page" id="pos-sell-page" style="display:none;align-items:stretch;justify-content:stretch;padding:0;flex-direction:column;">
+  <div class="pos-header">
+    <button class="btn-text" onclick="exitPosSell()">← Exit POS</button>
+    <div style="flex:1;text-align:center;font-weight:700;font-size:15px;"><span class="merchant-name">Boutique Aissatou</span> — <span>Cashier</span></div>
+    <div style="color:var(--ink-soft);font-size:13px;">👤 <span id="pos-cashier-name">Ali</span></div>
+  </div>
+  <div class="pos-body">
+    <div class="pos-left">
+      <div class="pos-cat-pills" id="pos-cat-pills"></div>
+      <input class="pos-search" placeholder="🔍 Scan a barcode or search a product" oninput="renderPosProducts(this.value)"/>
+      <div class="pos-product-grid" id="pos-product-grid"></div>
+    </div>
+    <div class="pos-right">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h3 style="font-size:16px;">Order</h3><button class="btn-text" style="font-size:12.5px;" id="pos-client-btn" onclick="openPosClientPicker()">+ Add a client</button>
+      </div>
+      <div id="pos-order-lines" style="flex:1;overflow-y:auto;"></div>
+      <div>
+        <div class="pos-summary-row"><span>Subtotal</span><span class="tabular" id="pos-subtotal">0 XOF</span></div>
+        <div class="pos-summary-row"><span>Discount <select id="pos-discount" onchange="renderPosOrder()" style="margin-left:6px;border:1px solid var(--border);border-radius:8px;padding:2px 4px;font-family:inherit;font-size:12px;"><option value="0">0%</option><option value="5">5%</option><option value="10">10%</option><option value="15">15%</option></select></span><span class="tabular" id="pos-discount-amt">0 XOF</span></div>
+        <div class="pos-summary-row total"><span>Total</span><span class="tabular amt" id="pos-total">0 XOF</span></div>
+        <div class="pos-method-tabs" id="pos-method-tabs"></div>
+        <button class="btn btn-green" style="width:100%;justify-content:center;padding:13px;font-size:14px;" id="pos-pay-btn" onclick="posPay()">Pay 0 XOF</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CUSTOMER-FACING CHECKOUT (via #pay= link) ================= -->
+<div class="checkout-page" id="checkout-page">
+  <div class="checkout-shell">
+    <div class="checkout-brand"><span class="wordmark"><span class="wm"><svg class="mixx-logo" viewBox="0 0 116 37" role="img" aria-label="Mixx" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64.5495 0H52.8869L51.1008 8.39339H63.6631L64.5495 0Z"/><path d="M115.364 10.6557H105.325L105.122 11.0272C102.934 15.0216 101.351 17.0453 100.405 17.0453C100.262 17.0453 99.0038 16.8727 98.1705 11.2528L98.0809 10.6557H82.4942L82.2917 11.0206C80.1039 15.0182 78.517 17.0419 77.5709 17.0419C77.4281 17.0419 76.1699 16.8694 75.3333 11.2495L75.2437 10.6523H64.7364L64.9522 11.5215C66.0212 15.7979 67.7541 20.3595 69.6066 23.7666C66.5855 27.6116 63.8765 31.6955 61.5593 35.9088L60.9883 36.9472H71.0275L71.2267 36.5823C73.4144 32.5846 75.0013 30.5576 75.9475 30.5576C76.0902 30.5576 77.3485 30.7334 78.1817 36.3501L78.2714 36.9472H93.858L94.0572 36.5823C96.245 32.5846 97.8319 30.5576 98.778 30.5576C98.9208 30.5576 100.182 30.7334 101.016 36.3501L101.105 36.9472H111.613L111.397 36.078C110.328 31.805 108.595 27.2434 106.746 23.833C109.77 19.9846 112.476 15.9007 114.793 11.6907L115.364 10.6557ZM92.4405 23.7732C90.5581 26.1685 88.7754 28.6965 87.1287 31.2941C86.1826 28.5605 85.0505 25.9396 83.9118 23.8396C85.7941 21.4476 87.5769 18.9197 89.2202 16.3187C90.173 19.0524 91.3018 21.6732 92.4405 23.7732Z"/><path d="M44.8809 2.40821C44.2103 1.76129 43.3903 1.23711 42.4575 0.855595C41.2689 0.334741 40.0074 0.0693359 38.6961 0.0693359L38.3209 0.0792882C38.1981 0.0759706 38.0885 0.0660191 37.9591 0.0726542C36.4319 0.0394787 34.8218 0.45749 33.3246 1.29683C32.0232 1.98356 30.8546 2.95892 29.9516 4.10679C29.9118 4.15323 29.8719 4.19968 29.8321 4.24944C28.0958 1.62526 25.2175 0.0693359 22.0437 0.0693359L21.6752 0.0826064C20.7955 0.0593836 19.9423 0.142322 19.1356 0.318152C18.787 0.404408 18.4085 0.533794 18.0267 0.702988C16.5594 1.22716 15.2182 2.07977 14.1193 3.18451L12.8079 0.0759724H5.25863L5.22211 0.314836C4.35563 5.9613 3.47587 12.3642 2.62268 18.5547C1.78276 24.6656 0.912957 30.9856 0.0497981 36.632L0 36.9538H10.5173L13.0669 17.941C13.6445 15.0414 14.2421 12.0424 16.5793 10.2111C17.2897 9.53098 18.611 9.23572 19.4941 9.93572C20.4602 10.785 20.3506 12.0191 20.2112 13.5817L17.0905 36.9538H27.1696L29.779 17.4699C30.3765 14.7462 30.9907 11.9296 33.1586 10.2509C33.9852 9.55752 35.2335 9.19259 36.1498 9.93572C37.0893 10.7386 36.993 11.986 36.8868 13.4158L33.7462 36.9505H43.968L47.9252 10.785C48.4033 7.65325 47.2646 4.51817 44.8809 2.40821Z"/><path d="M51.5472 10.6553L47.5103 36.9535H58.7811L62.8214 10.6553H51.5472Z"/></svg></span><span class="ws">Business Lite</span></span></div>
+    <div class="checkout-card" id="checkout-card"></div>
+    <div class="checkout-footer" id="checkout-footer"></div>
+  </div>
+</div>
+
+<div class="toast-stack" id="toast-stack"></div>
+
+<!-- Express Invoice Modal -->
+<div class="modal-overlay" id="express-overlay"><div class="modal">
+  <div class="modal-head"><h3>⚡ Express Invoice</h3><button class="modal-close" onclick="closeExpressInvoice()">✕</button></div>
+  <div class="modal-body">
+    <div class="field"><label>Invoice Amount</label><input id="ex-amount" class="tabular" style="font-size:19px;font-weight:700;" value="500 XOF"/></div>
+    <div class="field"><label>Description (optional)</label><input id="ex-desc" placeholder="Repair service"/></div>
+    <div class="toggle-row"><span>Add client details</span><button class="toggle on" id="ex-client-toggle" onclick="toggleBtn(this)"></button></div>
+    <div class="toggle-row"><span>Requesting fees from your customer</span><button class="toggle" id="ex-fees-toggle" onclick="toggleBtn(this)"></button></div>
+    <button class="btn-text" style="margin:8px 0 10px;" id="ex-discount-btn" onclick="toggleShow('ex-discount-field'); this.style.display='none';">+ Add discount</button>
+    <div class="field" id="ex-discount-field" style="display:none;"><label>Discount (%)</label><input id="ex-discount" type="number" min="0" max="100" value="10"/></div>
+    <div style="height:8px;"></div>
+    <button class="btn btn-green" style="width:100%;justify-content:center;padding:13px;" onclick="submitExpressInvoice()">Create Invoice</button>
+  </div>
+</div></div>
+
+<!-- Invoice / Link Sent share modal -->
+<div class="modal-overlay" id="sent-overlay"><div class="modal-nohead" style="position:relative;">
+  <button class="modal-close" onclick="closeSentModal()" style="position:absolute;top:12px;right:12px;background:rgba(255,255,255,.18);color:#fff;z-index:2;">✕</button>
+  <div class="sent-hero">
+    <div class="ring"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h3 id="sent-title">The invoice is ready to be sent!</h3>
+  </div>
+  <div class="sent-body">
+    <div class="sent-link-row"><input readonly id="sent-link-input" onclick="this.select()"/><button class="icon-btn" style="border:none;" onclick="copySentLink()">📋</button></div>
+    <a class="sent-option" id="sent-email-link" href="mailto:" style="text-decoration:none;color:inherit;"><span class="dot" style="background:var(--surface-2);">✉️</span>Send via Email</a>
+    <div class="sent-option" onclick="sentShareVia('SMS')"><span class="dot" style="background:var(--surface-2);">💬</span>Send via SMS</div>
+    <div class="sent-option" onclick="sentShareVia('WhatsApp')"><span class="dot" style="background:var(--green);color:#fff;">●</span>Share via WhatsApp</div>
+    <div class="sent-option" onclick="sentShareVia('Widget')"><span class="dot" style="background:var(--surface-2);">🌐</span>Widget to my site</div>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:12px;" onclick="previewSentLink()">👁 Preview payment page</button>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:10px;" onclick="closeSentModal()">Done</button>
+  </div>
+</div></div>
+
+<!-- New client modal -->
+<div class="modal-overlay" id="client-overlay"><div class="modal">
+  <div class="modal-head"><h3>Add client</h3><button class="modal-close" onclick="closeNewClient()">✕</button></div>
+  <div class="modal-body">
+    <div class="field"><label>Name</label><input id="cl-name" placeholder="e.g. Aïcha Ndour"/></div>
+    <div class="field"><label>Phone</label><input id="cl-phone" value="+221 77 000 00 00"/></div>
+    <div class="field"><label>Email (optional)</label><input id="cl-email" placeholder="name@email.com"/></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitNewClient()">Add client</button>
+  </div>
+</div></div>
+
+<!-- Client profile modal -->
+<div class="modal-overlay" id="client-profile-overlay"><div class="modal wide" id="client-profile-modal"></div></div>
+
+<!-- Storefront preview modal -->
+<div class="modal-overlay" id="storefront-overlay"><div class="modal wide">
+  <div class="modal-head"><h3>Storefront preview</h3><button class="modal-close" onclick="closeStorefrontPreview()">✕</button></div>
+  <div class="modal-body"><div class="grid" style="grid-template-columns:repeat(3,1fr);" id="storefront-grid"></div></div>
+</div></div>
+
+<!-- ================= ADMIN SHELL ================= -->
+<div class="shell" id="admin-shell">
+  <header class="topbar">
+    <button class="icon-btn menu-btn" onclick="toggleSidebar()" title="Menu" aria-label="Menu">☰</button>
+    <a class="brand wordmark" href="#admin" onclick="event.preventDefault(); adminView('overview');"><span class="wm"><svg class="mixx-logo" viewBox="0 0 116 37" role="img" aria-label="Mixx" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M64.5495 0H52.8869L51.1008 8.39339H63.6631L64.5495 0Z"/><path d="M115.364 10.6557H105.325L105.122 11.0272C102.934 15.0216 101.351 17.0453 100.405 17.0453C100.262 17.0453 99.0038 16.8727 98.1705 11.2528L98.0809 10.6557H82.4942L82.2917 11.0206C80.1039 15.0182 78.517 17.0419 77.5709 17.0419C77.4281 17.0419 76.1699 16.8694 75.3333 11.2495L75.2437 10.6523H64.7364L64.9522 11.5215C66.0212 15.7979 67.7541 20.3595 69.6066 23.7666C66.5855 27.6116 63.8765 31.6955 61.5593 35.9088L60.9883 36.9472H71.0275L71.2267 36.5823C73.4144 32.5846 75.0013 30.5576 75.9475 30.5576C76.0902 30.5576 77.3485 30.7334 78.1817 36.3501L78.2714 36.9472H93.858L94.0572 36.5823C96.245 32.5846 97.8319 30.5576 98.778 30.5576C98.9208 30.5576 100.182 30.7334 101.016 36.3501L101.105 36.9472H111.613L111.397 36.078C110.328 31.805 108.595 27.2434 106.746 23.833C109.77 19.9846 112.476 15.9007 114.793 11.6907L115.364 10.6557ZM92.4405 23.7732C90.5581 26.1685 88.7754 28.6965 87.1287 31.2941C86.1826 28.5605 85.0505 25.9396 83.9118 23.8396C85.7941 21.4476 87.5769 18.9197 89.2202 16.3187C90.173 19.0524 91.3018 21.6732 92.4405 23.7732Z"/><path d="M44.8809 2.40821C44.2103 1.76129 43.3903 1.23711 42.4575 0.855595C41.2689 0.334741 40.0074 0.0693359 38.6961 0.0693359L38.3209 0.0792882C38.1981 0.0759706 38.0885 0.0660191 37.9591 0.0726542C36.4319 0.0394787 34.8218 0.45749 33.3246 1.29683C32.0232 1.98356 30.8546 2.95892 29.9516 4.10679C29.9118 4.15323 29.8719 4.19968 29.8321 4.24944C28.0958 1.62526 25.2175 0.0693359 22.0437 0.0693359L21.6752 0.0826064C20.7955 0.0593836 19.9423 0.142322 19.1356 0.318152C18.787 0.404408 18.4085 0.533794 18.0267 0.702988C16.5594 1.22716 15.2182 2.07977 14.1193 3.18451L12.8079 0.0759724H5.25863L5.22211 0.314836C4.35563 5.9613 3.47587 12.3642 2.62268 18.5547C1.78276 24.6656 0.912957 30.9856 0.0497981 36.632L0 36.9538H10.5173L13.0669 17.941C13.6445 15.0414 14.2421 12.0424 16.5793 10.2111C17.2897 9.53098 18.611 9.23572 19.4941 9.93572C20.4602 10.785 20.3506 12.0191 20.2112 13.5817L17.0905 36.9538H27.1696L29.779 17.4699C30.3765 14.7462 30.9907 11.9296 33.1586 10.2509C33.9852 9.55752 35.2335 9.19259 36.1498 9.93572C37.0893 10.7386 36.993 11.986 36.8868 13.4158L33.7462 36.9505H43.968L47.9252 10.785C48.4033 7.65325 47.2646 4.51817 44.8809 2.40821Z"/><path d="M51.5472 10.6553L47.5103 36.9535H58.7811L62.8214 10.6553H51.5472Z"/></svg></span><span class="ws">Business Lite</span></a>
+    <span class="admin-chip">ADMIN</span>
+    <div class="topbar-spacer"></div>
+    <a class="link-site" href="../index.html">🌐 Website</a>
+    <div class="seg lang"><button data-lang-btn="en" onclick="setAppLang('en')">EN</button><button data-lang-btn="fr" onclick="setAppLang('fr')">FR</button></div>
+    <div class="seg theme"><button data-theme-btn="blue" onclick="setAppTheme('blue')" title="Blue"><span class="sw"></span></button><button data-theme-btn="white" onclick="setAppTheme('white')" title="White"><span class="sw"></span></button></div>
+    <button class="btn btn-ghost btn-sm" onclick="doLogout()">Log out</button>
+  </header>
+  <nav class="sidebar" id="admin-sidebar">
+    <div class="nav-item active" data-aview="overview" onclick="adminView('overview')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 20V10M11 20V4M18 20v-7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg><span>Overview</span></div>
+    <div class="nav-item" data-aview="accounts" onclick="adminView('accounts')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.7"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5" stroke="currentColor" stroke-width="1.7"/><circle cx="17.5" cy="8.5" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M15.8 14.8c2.6.2 4.7 2.2 4.7 5.2" stroke="currentColor" stroke-width="1.7"/></svg><span>Accounts</span></div>
+    <div class="nav-item" data-aview="gateways" onclick="adminView('gateways')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="13" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18M7 15h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><span>Payment methods & MDR</span></div>
+    <div class="nav-item" data-aview="data" onclick="adminView('data')"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><ellipse cx="12" cy="6" rx="7" ry="3" stroke="currentColor" stroke-width="1.7"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6" stroke="currentColor" stroke-width="1.7"/></svg><span>Data & settings</span></div>
+    <div class="nav-foot">
+      <div class="nav-sep"></div>
+      <a class="nav-item" href="../index.html"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Back to website</span></a>
+    </div>
+  </nav>
+  <main class="main">
+
+    <section class="view active" id="aview-overview">
+      <div class="page-head"><div><h1>Platform overview</h1><p class="page-sub">All merchants on Mixx Business Lite.</p></div>
+        <div class="head-actions"><button class="btn btn-ghost" onclick="adminExportExcel()">⬇ Export to Excel</button></div></div>
+      <div class="grid kpi-row">
+        <div class="card kpi"><div class="kpi-icon" style="background:var(--primary-soft);">🏪</div><div><div class="kpi-label">Merchants</div><div class="kpi-value tabular" id="ak-merchants">0</div></div></div>
+        <div class="card kpi"><div class="kpi-icon" style="background:var(--green-soft);">✅</div><div><div class="kpi-label">Active accounts</div><div class="kpi-value tabular" id="ak-active">0</div></div></div>
+        <div class="card kpi"><div class="kpi-icon" style="background:var(--amber-soft);">💰</div><div><div class="kpi-label">Total collected</div><div class="kpi-value tabular" id="ak-revenue">0</div></div></div>
+        <div class="card kpi"><div class="kpi-icon" style="background:var(--primary-soft);">🧾</div><div><div class="kpi-label">Invoices</div><div class="kpi-value tabular" id="ak-invoices">0</div></div></div>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px;" id="ak-split">
+        <div class="card"><div class="card-title"><h3>Accounts by plan</h3></div><div id="ak-plans"></div></div>
+        <div class="card"><div class="card-title"><h3>Accounts by country</h3></div><div id="ak-countries"></div></div>
+      </div>
+      <div class="card">
+        <div class="card-title"><h3>Top merchants</h3><button class="btn-text" onclick="adminView('accounts')">All accounts</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Business</th><th>Country</th><th>Plan</th><th>Collected</th><th>Invoices</th><th>Clients</th><th></th></tr></thead><tbody id="ak-top"></tbody></table></div>
+      </div>
+    </section>
+
+    <section class="view" id="aview-accounts">
+      <div class="page-head"><div><h1>Accounts</h1><p class="page-sub">Registered merchants. Disabled accounts cannot log in.</p></div></div>
+      <div class="search-bar">
+        <input id="aa-search" oninput="renderAdminAccounts()" placeholder="🔍 Search by name, username or e-mail..." style="border-radius:20px;"/>
+        <select id="aa-status" onchange="renderAdminAccounts()" class="filter-btn"><option value="all">All statuses</option><option value="active">Active</option><option value="disabled">Disabled</option></select>
+      </div>
+      <div class="card" style="padding:0;"><div class="table-wrap"><table>
+        <thead><tr><th>Business</th><th>Username</th><th>E-mail</th><th>Country</th><th>Plan</th><th>Status</th><th>Joined</th><th>Last login</th><th>Actions</th></tr></thead>
+        <tbody id="aa-tbody"></tbody></table></div></div>
+    </section>
+
+    <section class="view" id="aview-gateways">
+      <div class="page-head"><div><h1>Payment methods & MDR</h1><p class="page-sub">Default rates and availability for every merchant. You can also set a special rate or block a method for one merchant from their page.</p></div>
+        <div class="head-actions"><button class="btn btn-primary" onclick="adminSaveGateways()">Save changes</button></div></div>
+      <div class="card" style="padding:0;"><div class="table-wrap"><table>
+        <thead><tr><th>Payment method</th><th>Default MDR (%)</th><th>Available on platform</th><th>Merchants using it</th><th>Special rates</th></tr></thead>
+        <tbody id="ag-tbody"></tbody></table></div></div>
+      <p class="page-sub" style="margin-top:12px;">Turning a method off here removes it from every merchant's checkout, invoices and cashier.</p>
+    </section>
+
+    <section class="view" id="aview-merchant">
+      <button class="back-btn" onclick="adminView('accounts')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg><span>Back to accounts</span></button>
+      <div class="page-head"><div><h1 id="am-title">Merchant</h1><p class="page-sub" id="am-sub"></p></div>
+        <div class="head-actions" id="am-actions"></div></div>
+      <div class="readonly-note">👁 Read-only view of this merchant's data.</div>
+      <div class="grid kpi-row" id="am-kpis"></div>
+      <div class="grid two-col" style="margin-bottom:16px;">
+        <div class="card"><div class="card-title"><h3>Invoices</h3></div><div class="table-wrap"><table><thead><tr><th>Invoice Number</th><th>Client</th><th>Date</th><th>Amount</th><th>Status</th></tr></thead><tbody id="am-invoices"></tbody></table></div></div>
+        <div class="card"><div class="card-title"><h3>Profile</h3></div><div id="am-profile"></div></div>
+      </div>
+      <div class="card" style="margin-bottom:16px;">
+        <div class="card-title"><h3>Payment methods for this merchant</h3><button class="btn btn-primary btn-sm" onclick="adminSaveMerchantGateways()">Save</button></div>
+        <div class="table-wrap"><table><thead><tr><th>Payment method</th><th>Merchant setting</th><th>MDR for this merchant (%)</th><th>Admin control</th></tr></thead><tbody id="am-gw"></tbody></table></div>
+        <p class="page-sub" style="margin-top:8px;">Leave the MDR empty to use the default rate. "Blocked" stops the merchant from switching the method on.</p>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px;" id="am-split">
+        <div class="card"><div class="card-title"><h3>Clients</h3></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Phone</th><th>Email</th></tr></thead><tbody id="am-clients"></tbody></table></div></div>
+        <div class="card"><div class="card-title"><h3>Products</h3></div><div class="table-wrap"><table><thead><tr><th>Name</th><th>Quantity</th><th>Price (XOF)</th><th>Published</th></tr></thead><tbody id="am-products"></tbody></table></div></div>
+      </div>
+      <div class="grid" style="grid-template-columns:1fr 1fr;" id="am-split2">
+        <div class="card"><div class="card-title"><h3>Payment links</h3></div><div class="table-wrap"><table><thead><tr><th>Title</th><th>Amount</th><th>Collected</th></tr></thead><tbody id="am-links"></tbody></table></div></div>
+        <div class="card"><div class="card-title"><h3>Latest transactions</h3></div><div id="am-tx"></div></div>
+      </div>
+    </section>
+
+    <section class="view" id="aview-data">
+      <div class="page-head"><div><h1>Data & settings</h1><p class="page-sub">Backups, exports and the admin password.</p></div></div>
+      <div class="settings-grid">
+        <div>
+          <div class="card" style="margin-bottom:16px;">
+            <h3>💾 Where the data is stored</h3>
+            <p class="page-sub" style="margin:0 0 10px;">In this version, all accounts and merchant data are saved in this browser on this computer. Download a backup to keep a copy or move it to another computer.</p>
+            <div class="storage-meter"><div id="storage-bar"></div></div>
+            <div class="page-sub" id="storage-text" style="margin-top:6px;"></div>
+          </div>
+          <div class="card" style="margin-bottom:16px;">
+            <h3>⬇ Export</h3>
+            <button class="btn btn-primary btn-sm" onclick="adminExportExcel()">Export everything to Excel</button>
+            <button class="btn btn-ghost btn-sm" onclick="adminBackup()">Download backup (.json)</button>
+          </div>
+          <div class="card">
+            <h3>⬆ Restore</h3>
+            <p class="page-sub" style="margin:0 0 10px;">Load a backup file. This replaces all accounts and data in this browser.</p>
+            <label class="btn btn-ghost btn-sm" style="cursor:pointer;">Choose backup file…<input type="file" accept=".json,application/json" onchange="adminRestore(this)" style="display:none;"/></label>
+          </div>
+        </div>
+        <div>
+          <div class="card" style="margin-bottom:16px;">
+            <h3>🔑 Admin password</h3>
+            <div class="field"><label>Current password</label><input id="ad-cur" type="password" autocomplete="current-password"/><div class="err"></div></div>
+            <div class="field"><label>New password</label><input id="ad-new" type="password" autocomplete="new-password" placeholder="At least 6 characters"/><div class="err">Password must be at least 6 characters.</div></div>
+            <div class="field"><label>Confirm new password</label><input id="ad-new2" type="password" autocomplete="new-password"/><div class="err">Passwords do not match.</div></div>
+            <button class="btn btn-primary btn-sm" onclick="adminChangePassword()">Update password</button>
+          </div>
+          <div class="card danger-card">
+            <h3>⚠️ Reset demo data</h3>
+            <p class="page-sub" style="margin:0 0 10px;">Deletes every account and all data in this browser and restores the original demo accounts.</p>
+            <button class="btn btn-danger btn-sm" onclick="adminConfirm('reset')">Reset everything</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Admin: reset password -->
+<div class="modal-overlay" id="admin-pass-overlay"><div class="modal">
+  <div class="modal-head"><h3>🔑 Reset password</h3><button class="modal-close" onclick="closeOverlay('admin-pass-overlay')">✕</button></div>
+  <div class="modal-body">
+    <p class="page-sub" style="margin:0 0 12px;" id="ap-for"></p>
+    <div class="field"><label>New password</label><input id="ap-pass" autocomplete="off"/><div class="err">Password must be at least 6 characters.</div></div>
+    <button class="btn-text" style="margin-bottom:14px;" onclick="document.getElementById('ap-pass').value = genPassword()">Generate a password</button>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="adminSavePassword()">Set new password</button>
+  </div>
+</div></div>
+
+<!-- Admin: confirm -->
+<div class="modal-overlay" id="admin-confirm-overlay"><div class="modal">
+  <div class="modal-head"><h3 id="ac-title">Are you sure?</h3><button class="modal-close" onclick="closeOverlay('admin-confirm-overlay')">✕</button></div>
+  <div class="modal-body">
+    <p class="page-sub" style="margin:0 0 16px;" id="ac-body"></p>
+    <div style="display:flex;gap:10px;justify-content:flex-end;"><button class="btn btn-ghost" onclick="closeOverlay('admin-confirm-overlay')">Cancel</button><button class="btn btn-danger" id="ac-ok">Confirm</button></div>
+  </div>
+</div></div>
+
+<!-- Upgrade / plans modal -->
+<div class="modal-overlay" id="upgrade-overlay"><div class="modal wide" style="max-width:760px;">
+  <div class="modal-head"><h3>⬆ Plans & billing</h3><button class="modal-close" onclick="closeOverlay('upgrade-overlay')">✕</button></div>
+  <div class="modal-body">
+    <div class="pricing-mini">
+      <div class="pm-plan" data-plan="free"><strong>Free</strong><div class="price">$0</div><ul><li>Up to 10 invoices / month</li><li>Online store (6 products)</li><li>Payment links</li></ul><button class="btn btn-ghost btn-sm" style="justify-content:center;" onclick="choosePlan('free')">Choose Free</button></div>
+      <div class="pm-plan featured" data-plan="pro"><strong>Professional</strong><div class="price">$17<span style="font-size:12px;font-weight:600;color:var(--ink-soft);"> /month</span></div><ul><li>Unlimited invoices</li><li>Unlimited products</li><li>Cashier (POS) & reports</li><li>Custom domain</li></ul><button class="btn btn-primary btn-sm" style="justify-content:center;" onclick="choosePlan('pro')">Choose Professional</button></div>
+      <div class="pm-plan" data-plan="enterprise"><strong>Enterprise</strong><div class="price">Custom</div><ul><li>Dedicated account manager</li><li>API & integrations</li><li>Custom invoice design</li></ul><a class="btn btn-ghost btn-sm" style="justify-content:center;text-decoration:none;" href="../contact.html" target="_blank">Contact sales</a></div>
+    </div>
+    <p class="page-sub" style="margin-top:14px;">Sandbox — changing plan here does not charge you. <a href="../pricing.html" target="_blank" style="color:var(--primary);font-weight:700;">Compare all plans →</a></p>
+  </div>
+</div></div>
+
+<!-- Payout account modal -->
+<div class="modal-overlay" id="payout-overlay"><div class="modal">
+  <div class="modal-head"><h3>🏦 Payout account</h3><button class="modal-close" onclick="closeOverlay('payout-overlay')">✕</button></div>
+  <div class="modal-body">
+    <div class="field"><label>Mixx Wallet number</label><input id="po-wallet"/></div>
+    <div class="field"><label>Bank name</label><input id="po-bank"/></div>
+    <div class="field"><label>IBAN / account number</label><input id="po-iban"/></div>
+    <div class="field"><label>Account holder</label><input id="po-holder"/></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="savePayout()">Save payout account</button>
+  </div>
+</div></div>
+
+<!-- POS settings modal -->
+<div class="modal-overlay" id="pos-settings-overlay"><div class="modal">
+  <div class="modal-head"><h3>⚙️ Cashier settings</h3><button class="modal-close" onclick="closeOverlay('pos-settings-overlay')">✕</button></div>
+  <div class="modal-body">
+    <div class="field"><label>Cashier name</label><input id="ps-cashier"/></div>
+    <div class="field"><label>Receipt footer</label><input id="ps-footer"/></div>
+    <div class="toggle-row"><span>Print receipt automatically</span><button class="toggle on" onclick="toggleBtn(this)"></button></div>
+    <div class="toggle-row"><span>Ask for client on every sale</span><button class="toggle" onclick="toggleBtn(this)"></button></div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:10px;" onclick="savePosSettings()">Save settings</button>
+  </div>
+</div></div>
+
+<!-- POS client picker -->
+<div class="modal-overlay" id="pos-client-overlay"><div class="modal">
+  <div class="modal-head"><h3>👤 Add a client to this order</h3><button class="modal-close" onclick="closeOverlay('pos-client-overlay')">✕</button></div>
+  <div class="modal-body">
+    <div id="pos-client-list"></div>
+    <button class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:12px;" onclick="closeOverlay('pos-client-overlay'); openNewClient();">+ New client</button>
+  </div>
+</div></div>
+
+<script src="vendor/xlsx.mini.min.js"></script>
+<script src="store.js"></script>
+<script src="app-i18n.js"></script>
+<script src="app.js"></script>
+<script src="admin.js"></script>
+<script src="vendor/qrcode.js"></script>
+<script src="vendor/jspdf.umd.min.js"></script>
+<script src="app-v5.js"></script>
+</body>
+</html>
