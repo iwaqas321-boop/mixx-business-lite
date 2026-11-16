@@ -2,7 +2,7 @@
 
 **Version 5 · 30 September 2026 · Axian Group**
 
-v5 builds on v4.1 (accounts, guest mode, admin, real Mixx logo) and adds the changes from the 30 September review.
+v5 (accounts, guest mode, admin, real Mixx logo) and adds the changes from the 30 September review.
 
 ## What's new in v5
 | # | Change | Where |
