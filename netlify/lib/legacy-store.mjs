@@ -1,3 +1,11 @@
+// Generated from the prototype's original site/app/store.js (git baseline 6a632fc).
+// Runs that file against in-memory storage so the server reuses its demo
+// data, empty-state and fee helpers without a second copy of that logic.
+export default function loadLegacyStore() {
+  const mem = new Map();
+  const localStorage = { getItem: k => (mem.has(k) ? mem.get(k) : null), setItem: (k, v) => mem.set(k, String(v)), removeItem: k => mem.delete(k) };
+  const sessionStorage = localStorage;
+  const window = {};
 /* =====================================================================
    Mixx Business Lite — Store (v4)
    ---------------------------------------------------------------------
@@ -376,3 +384,5 @@
   };
   window.Store = Store;
 })();
+  return window.Store;
+}

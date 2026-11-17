@@ -893,14 +893,29 @@ function submitRegister(){
       if(err.code==='username_taken') fieldError(u, true, 'This username is already taken.');
       else if(err.code==='username_invalid') fieldError(u, true, 'Use 3–20 letters, numbers, dots or dashes.');
       else if(err.code==='email_taken') fieldError(e, true, 'An account already uses this e-mail.');
-      else pushToast('Storage full','Remove some product images or export your data.');
+      else pushToast('Could not create your account','Please check your connection and try again.');
     });
 }
 function submitForgot(){
   const e = document.getElementById('forgot-email');
   if(!fieldError(e, !EMAIL_RE.test(e.value.trim()))) return;
-  document.getElementById('forgot-form-body').classList.add('hidden');
-  document.getElementById('forgot-done').classList.remove('hidden');
+  Store.requestPasswordReset(e.value).then(()=>{
+    document.getElementById('forgot-form-body').classList.add('hidden');
+    document.getElementById('forgot-done').classList.remove('hidden');
+  }).catch(err=> pushToast(err.code==='rate_limited' ? 'Too many requests' : 'Could not send the e-mail', err.code==='rate_limited' ? 'Please wait a while before asking for another reset link.' : 'Please check your connection and try again.'));
+}
+function submitNewPassword(){
+  const p1 = document.getElementById('reset-pass'), p2 = document.getElementById('reset-pass2');
+  const ok = [fieldError(p1, p1.value.length<6), fieldError(p2, p2.value!==p1.value || !p2.value)].every(Boolean);
+  if(!ok) return;
+  Store.completePasswordReset(p1.value).then(()=>{
+    p1.value = p2.value = '';
+    document.getElementById('reset-form-body').classList.add('hidden');
+    document.getElementById('reset-done').classList.remove('hidden');
+  }).catch(err=>{
+    if(err.code==='same_password') fieldError(p1, true, 'Choose a password different from your old one.');
+    else { pushToast('Reset link expired','Please ask for a new reset link.'); location.hash = '#forgot'; }
+  });
 }
 function doLogout(){
   closeUserMenu();
@@ -923,8 +938,8 @@ function showAuth(which){
   document.getElementById('shell').style.display = '';
   document.getElementById('admin-shell').classList.remove('active');
   document.getElementById('login-page').classList.remove('hidden');
-  ['login','register','forgot'].forEach(k=> document.getElementById('auth-'+k).classList.toggle('hidden', k!==which));
-  document.title = (which==='register' ? T('Create your free account') : which==='forgot' ? T('Reset your password') : T('Log in')) + ' — Mixx Business Lite';
+  ['login','register','forgot','reset'].forEach(k=> document.getElementById('auth-'+k).classList.toggle('hidden', k!==which));
+  document.title = (which==='register' ? T('Create your free account') : which==='forgot' ? T('Reset your password') : which==='reset' ? T('Choose a new password') : T('Log in')) + ' — Mixx Business Lite';
   window.scrollTo(0,0);
 }
 function hideAllShells(){
@@ -969,6 +984,7 @@ async function route(){
   if(pay){
     const owner = pay[1], kind = pay[2], id = parseInt(pay[3],10);
     if(owner === 'guest' && !(sess && sess.guest)){ location.replace(sess ? '#app' : '#login'); return; }
+    if(owner !== 'guest' && !Store.isMine(owner) && !(await Store.loadCheckout(owner, kind, id))){ location.replace(sess ? '#app' : '#login'); return; }
     if(owner !== 'guest'){ const acc = await Store.getAccount(owner); if(!acc){ location.replace('#login'); return; } setMerchantFromAccount(acc); }
     if(!ensureLoaded(owner)){ location.replace('#login'); return; }
     const exists = kind==='invoice' ? invoices.some(i=>i.id===id) : kind==='link' ? paymentLinks.some(l=>l.id===id) : products.some(p=>p.id===id);
@@ -984,6 +1000,11 @@ async function route(){
     const plan = h.split('/')[1]; pickPlan(['pro','enterprise'].includes(plan) ? plan : 'free');
     showAuth('register'); return;
   }
+  if(h==='#reset'){
+    if(Store.recovery!=='ready'){ location.replace('#forgot'); return; }
+    document.getElementById('reset-form-body').classList.remove('hidden'); document.getElementById('reset-done').classList.add('hidden'); showAuth('reset'); return;
+  }
+  if(h==='#forgot' && Store.recovery==='expired'){ Store.recovery = null; setTimeout(()=> pushToast('Reset link expired','That link is no longer valid — ask for a new one below.'), 300); }
   if(h==='#forgot'){ document.getElementById('forgot-form-body').classList.remove('hidden'); document.getElementById('forgot-done').classList.add('hidden'); showAuth('forgot'); return; }
   if(h==='#login'){
     if(sess && !sess.guest){ location.replace(sess.role==='admin' ? '#admin' : '#app'); return; }
@@ -1225,6 +1246,5 @@ function appLangChanged(){ if(loadedOwner) renderAll(); if(typeof renderAdmin===
 setAppTheme(lsGet('mbl_theme','blue'));
 document.addEventListener('DOMContentLoaded', ()=>{
   startI18n();
-  route();
-  window.addEventListener('hashchange', route);
+  Store.ready.then(()=>{ route(); window.addEventListener('hashchange', route); });
 });
