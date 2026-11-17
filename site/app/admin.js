@@ -209,11 +209,12 @@ function adminConfirm(kind, id, payload){
     t.textContent = T('Delete account?'); b.textContent = T('This permanently deletes '+a.business+' and all of its data.'); ok.textContent = T('Delete');
     ok.onclick = async ()=>{ await Store.deleteAccount(id); closeOverlay('admin-confirm-overlay'); await loadAdminData(); if(adminCurrent==='merchant') adminView('accounts'); else renderAdmin(); pushToast('Account deleted', a.business); };
   } else if(kind==='reset'){
-    t.textContent = T('Reset everything?'); b.textContent = T('All accounts and data in this browser will be replaced by the original demo accounts. Download a backup first if you need it.'); ok.textContent = T('Reset everything');
-    ok.onclick = async ()=>{ await Store.resetAll(); closeOverlay('admin-confirm-overlay'); Store.session.clear(); location.hash = '#login'; pushToast('Demo data restored','Log in again with the demo accounts.'); };
+    t.textContent = T('Reset demo merchants?'); b.textContent = T('The demo merchants will be restored to their original data. Other merchants and the admin account are not touched.'); ok.textContent = T('Reset demo merchants');
+    ok.onclick = async ()=>{ try { await Store.resetAll(); closeOverlay('admin-confirm-overlay'); await loadAdminData(); renderAdmin(); pushToast('Demo data restored','The demo merchants are back to their original data.'); }
+      catch(e){ closeOverlay('admin-confirm-overlay'); pushToast('Reset failed','Please try again.'); } };
   } else if(kind==='restore'){
-    t.textContent = T('Restore this backup?'); b.textContent = T('All accounts and data in this browser will be replaced by the backup file.'); ok.textContent = T('Restore');
-    ok.onclick = async ()=>{ try { await Store.importAll(payload); closeOverlay('admin-confirm-overlay'); Store.session.clear(); location.hash = '#login'; pushToast('Backup restored','Log in again with an account from the backup.'); }
+    t.textContent = T('Restore this backup?'); b.textContent = T('Merchants in the backup that still exist will get their profile and data back. This overwrites their current data.'); ok.textContent = T('Restore');
+    ok.onclick = async ()=>{ try { const r = await Store.importAll(payload); closeOverlay('admin-confirm-overlay'); await loadAdminData(); renderAdmin(); pushToast('Backup restored', r.restored+' merchant(s) restored'+(r.skipped ? ', '+r.skipped+' skipped (no longer exist)' : '')+'.'); }
       catch(e){ closeOverlay('admin-confirm-overlay'); pushToast('Restore failed','This is not a valid backup file.'); } };
   }
   ok.textContent = T(ok.textContent);

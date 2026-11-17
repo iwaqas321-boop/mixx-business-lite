@@ -1,3 +1,51 @@
+# Mixx Business Lite
+
+Invoicing, payment links, online store and cashier (POS) for small merchants, with an admin panel.
+Live POC: https://mixx-business-lite.netlify.app (merchant app at `/app/`).
+
+Payments, SMS and social sign-in are sandbox/simulated.
+
+## How it fits together
+
+| Part | Where | What it does |
+|---|---|---|
+| Front end | `site/` | Static marketing pages and the app at `site/app/`. Only `site/app/store.js` knows where data lives. |
+| Database & login | Supabase | `accounts`, `merchant_data` (one JSON workspace per merchant) and `platform` tables, plus Supabase Auth. Row-level security is defined in `supabase/setup.sql`. |
+| Server functions | `netlify/functions/` | `/api/login`, `/api/register`, `/api/account` (passwords, e-mail, admin actions) and `/api/checkout` (public payment pages). These are the only code that uses the Supabase secret key. |
+
+## Setup
+
+1. Create a Supabase project and run `supabase/setup.sql` in the SQL Editor.
+2. Create a `.env` file (never commit it) containing:
+   ```
+   SUPABASE_URL=https://<project-ref>.supabase.co
+   SUPABASE_PUBLISHABLE_KEY=sb_publishable_...
+   SUPABASE_SECRET_KEY=sb_secret_...
+   ADMIN_EMAIL=admin@example.com      # optional
+   ADMIN_PASSWORD=...                 # optional; generated if left out
+   ```
+3. Put the project URL and publishable key in `site/app/config.js`.
+4. Run `npm install`, then `npm run seed`. This creates the admin account and the demo merchants (aissatou, chezmoussa, awacouture; password `demo123`).
+5. In Supabase → Authentication → URL Configuration, set the Site URL to `<your-site>/app/` and allow `<your-site>/**`. Password-reset e-mails need this.
+
+## Run locally
+
+```
+netlify dev        # http://localhost:8888/app/
+```
+
+## Deploy (Netlify)
+
+Set the three `SUPABASE_*` variables in Netlify's environment settings, then run:
+
+```
+netlify deploy --prod --dir site --functions netlify/functions
+```
+
+---
+
+> **Prototype notes (v5).** The notes below describe the browser-only prototype. Its admin login (`Mixx@2026`) and "where the data is saved" no longer apply. Data now lives in Supabase and the admin password is set when you run `npm run seed`.
+
 # Mixx Business Lite: v5 (dashboard, MDR, interop QR)
 
 **Version 5 · 30 September 2026 · Axian Group**
